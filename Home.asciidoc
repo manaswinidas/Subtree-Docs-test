@@ -2,6 +2,8 @@ image::http://design.jboss.org/kogito/logo/final/PNG/kogito_logo_rgb_color_horiz
 
 = Overview
 
+:version: 0.1.1
+
 Kogito is cloud-native business automation for building intelligent applications, backed by battle-tested capabilities.
 
 It originates from well known Open Source projects
@@ -16,6 +18,8 @@ takes an opinionated view on what makes the good business automation solution. K
 * *domain specific* no more leaking abstraction of the technology behind the service to your client applications
 * *empower developers* by offering a powerful developer experience based on battle-tested components
 
+== Latest version of Kogito {version}
+
 = Get it for a test drive
 
 The easiest way to see it running is by trying the examples. Kogito comes with set of examples that illustrates various aspects of business automation
@@ -27,6 +31,7 @@ The easiest way to see it running is by trying the examples. Kogito comes with s
 * *basic process* example illustrates single micoservice to expose business processes as services running on
 ** https://github.com/kiegroup/kogito-examples/tree/master/jbpm-quarkus-example[Quarkus] (both jvm and native image)
 ** https://github.com/kiegroup/kogito-examples/tree/master/jbpm-springboot-example[SpringBoot]
+
 
 = Create your own service
 
@@ -45,26 +50,26 @@ the team is working on bringing in Stunner based BPMN2, DMN and Scenario editors
 To build your own service that is powered by Kogito the best way is to start by generating project using 
 Maven Archetype. There are two flavours - Quarkus and Spring Boot
 
-=== Quarkus
+=== Quarkus 
 
-[source, bash]
+[source, bash, subs="attributes"]
 ----
 mvn archetype:generate \
 -DarchetypeGroupId=org.kie.kogito \
 -DarchetypeArtifactId=kogito-quarkus-archetype \
--DarchetypeVersion=0.1.1 \
+-DarchetypeVersion={version} \
 -DgroupId=com.company \
 -DartifactId=sample-kogito  
 ----
 
 === SpringBoot
 
-[source, bash]
+[source, bash, subs="attributes"]
 ----
 mvn archetype:generate \
 -DarchetypeGroupId=org.kie.kogito \
 -DarchetypeArtifactId=kogito-springboot-archetype \
--DarchetypeVersion=0.1.1 \
+-DarchetypeVersion={version} \
 -DgroupId=com.company \
 -DartifactId=sample-kogito  
 ----
