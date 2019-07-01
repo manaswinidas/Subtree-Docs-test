@@ -20,9 +20,14 @@ takes an opinionated view on what makes the good business automation solution. K
 
 == Latest version of Kogito {version}
 
+= Requirements
+
+Install GraalVM version 19.0.2+: https://github.com/oracle/graal/releases/tag/vm-19.0.2
+The native-image executable is not bundled in the GraalVM distribution anymore. Install it manually using $GRAALVM_HOME/bin/gu install native-image.
+
 = Get it for a test drive
 
-The easiest way to see it running is by trying the examples. Kogito comes with set of examples that illustrates various aspects of business automation
+The easiest way to see it running is by trying the examples. Kogito comes with a set of examples that illustrates various aspects of business automation
 
 * *onboarding* example illustrates microservice orchestration that shows processes, rules and decision running on 
 ** https://github.com/kiegroup/kogito-examples/tree/master/onboarding-example[Quarkus] (both jvm and native image)
