@@ -21,6 +21,7 @@
 * enable domain specific metrics - mainly data driven to be available for dashboards
 * operator to provision SSO and inject system tokens into containers so they can interact smoothly
 * open tracing for any service interaction from within a process or decision
+* first version of VSCode editors for BPMN and DMN
 
 # 0.4.0
 
@@ -34,6 +35,7 @@
 * VSCode extension to provide additional capabilities for developers - test, debug, deploy etc
 * operator provision data index and runtime storage on demand
 * operator discover and automatically register metrics endpoints in OpenShift provisioned Prometheus
+* complete version of VSCode editors for BPMN and DMN
 
 # 0.5.0
 
