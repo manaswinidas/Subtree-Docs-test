@@ -5,11 +5,11 @@ Administrator (or the operator of Kogito project) workflow focuses on day to day
 
 ## Be aware
 
-Awareness of the state of your project is crucial from administration standpoint, thus the first and foremost administrators should be approached with is the dashboard like state of the system. This is to allow them to just with a single look know what they need to focus on and where to move next.
+Awareness of the state of your project is crucial from the administration standpoint, thus the first and foremost administrators should be approached with is the dashboard like the state of the system. This is to allow them to just with a single look know what they need to focus on and where to move next.
 
 ## Manage and act
 
-Primary focus of the management aspect is on active instances, that is processes (and maybe decisions) that are currently active. Management will enable operators and admins to
+The primary focus of the management aspect is on active instances, that is processes (and maybe decisions) that are currently active. Management will enable operators and admins to
 
 * effectively search across active instances including filtering by business data
 * deep dive into individual instances including visualisation of the process instance state
@@ -20,7 +20,7 @@ Primary focus of the management aspect is on active instances, that is processes
 
 ### Deep dive 
 
-Deep dive view will provide complete view of the process instance, including
+Deep dive view will provide a complete view of the process instance, including
 
 * process instance visualisation
 * process instance variables
@@ -35,14 +35,14 @@ Administrators will be able to perform certain operators on active instances, ei
 
 * cancel selected process instance
 * cancel selected node instance
-* retriever selected node instance
-* trigger selected node in process instance
+* retrigger selected node instance
+* trigger selected node in a process instance
 * add/change/remove process variable
-* cancel or reschedule timer in selected process instance
+* cancel or reschedule timer in a selected process instance
 
 ## Watch and explain
 
-Watch and explain is focusing on historical data that allow to troubleshoot unexpected situations. That includes but is not limited to
+Watch and explain is focusing on historical data that allow troubleshooting unexpected situations. That includes but is not limited to
 
 * finding out what nodes were executed and when
 * finding out what decisions where executed and when
@@ -61,7 +61,7 @@ all metrics should be then collected into Prometheus and made available to build
 
 There should be both standard metrics produced by runtime services such as rule and process execution but also custom defined metrics that are specific to a particular domain that the applications are dealing with.
 
-On top of that both data index service and timer service provide metrics about their internals so these can also be monitored and managed.
+On top of that, both data index service and timer service provide metrics about their internals so these can also be monitored and managed.
 
 # Tracing
 
