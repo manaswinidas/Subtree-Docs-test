@@ -13,6 +13,10 @@ requirements not all BPMN2 constructs are supported at the moment. They are bein
 |None
 |None start event allows to explicitly instantiate new process instance without any triggers
 |0.1.0
+
+|Message
+|Message start event allows to instantiate new process instance based on incoming message, message data input is required
+|0.2.0
 |===
 
 == End events
@@ -32,6 +36,10 @@ requirements not all BPMN2 constructs are supported at the moment. They are bein
 |Error
 |Error end event makes complete process instance to complete with associated error
 |0.1.0
+
+|Message
+|Message end event allows to send a message upon completion of the process instance or given path, message data output is required
+|0.2.0
 |===
 
 == Tasks
@@ -105,5 +113,24 @@ NOTE: Syntax for conditions is limited to java expressions
 
 |Signal
 |Signal event allows to attach extra path to activity and wait for given signal to arrive with optional data
+|0.2.0
+|===
+
+== Multi instance characteristic 
+
+[cols="20%,60%,20%"]
+|===
+|Type |Description |Since version 
+
+|Call activity
+|Multi instance characteristic applied on call activity that allows to create new instance of the reusable subprocess for each item of the collection
+|0.2.0
+
+|Service task
+|Multi instance characteristic applied on service task that allows to create new instance of the service invocation for each item of the collection
+|0.2.0
+
+|User task
+|Multi instance characteristic applied on user task that allows to assign user task for each item of the collection
 |0.2.0
 |===
