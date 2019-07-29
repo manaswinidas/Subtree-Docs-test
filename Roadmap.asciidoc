@@ -21,7 +21,7 @@
 * enable domain specific metrics - mainly data driven to be available for dashboards
 * operator to provision SSO and inject system tokens into containers so they can interact smoothly
 * open tracing for any service interaction from within a process or decision
-* first version of VSCode editors for BPMN and DMN
+* first version of BPMN VSCode editor
 
 # 0.4.0
 
@@ -32,10 +32,9 @@
 * variable tagging to allow adding labels to variables to describe their relevance
 * configurable human tasks life cycle to allow control over what is needed to work on user assigned tasks
 * data index service searching capabilities based on domain data
-* VSCode extension to provide additional capabilities for developers - test, debug, deploy etc
 * operator provision data index and runtime storage on demand
 * operator discover and automatically register metrics endpoints in OpenShift provisioned Prometheus
-* complete version of VSCode editors for BPMN and DMN
+* first version of DMN VSCode editor
 
 # 0.5.0
 
@@ -45,7 +44,8 @@
 
 * task inbox with base functionality to work on tasks as task user and task admin
 * timer and job service + timers in the process at least intermediate and boundary timers
-* operator to provision timer service on demand, meaning only then runtime service uses timers and de-provision when no longer needed
+* operator to provision timer service on-demand, meaning only then runtime service uses timers and de-provision when no longer needed
+* published version of VSCode editors for BPMN and DMN
 
 # 0.6.0
 
@@ -56,6 +56,7 @@
 * management console that allows administrators of the business automation to have insights into running services and historical data
 * operator to provision complete environment including sso, management console, task inbox, timer service and runtime services
 * multi tenant task inbox
+* VSCode extension to provide additional capabilities for developers - test, debug, deploy etc
 
 # 1.0.0
 
