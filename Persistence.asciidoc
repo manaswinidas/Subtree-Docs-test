@@ -1,6 +1,8 @@
 = Overview
 
-Kogito supports (since version 0.3.0) a runtime persistence for workflows. That allows users to configure key value based storage backed by Infinispan to persist data (including active nodes and process instance variables) to preserve it across restarts.
+Kogito supports (since version 0.3.0) a runtime persistence for workflows. That allows users to configure key value based storage backed by https://infinispan.org[Infinispan] to persist data (including active nodes and process instance variables) to preserve it across restarts.
+
+Version of Infinispan currently used is 10.0.0.Beta4
 
 == What is persisted?
 
@@ -40,3 +42,14 @@ message Person {
 ----
 
 NOTE: Each `kogito-application.proto` file imports `kogito-types.proto` which defines base types automatically managed by Kogito.
+
+Based on the `kogito-application.proto` file, marshallers are also generated and configured in the application so whenever particular data type is used in process instance it can be successfully marshalled and unmarshalled.
+
+Marshallers are based on the subproject of Infinispan called https://github.com/infinispan/protostream[protostream].
+
+== Supported data types
+
+Main rule is to try to stick to POJO/JavaBeans as data types that represent process variables. While doing that out of the box generation will provide most benefits. Diverging from it pose quite high probability of failed generation and by that failed build.
+
+Currently following data types are supported:
+
