@@ -165,3 +165,18 @@ Currently following data types are supported:
 |POJO type that is build up from above simple types and another POJOs and List of POJOs
 |0.3.0
 |===
+
+
+== How it is persisted?
+
+Process instance is persisted as soon as it reaches a wait state, meaning it does not execute anymore but has not reached yet the final state (complete or abort). An example of such wait state is user task, or signal catch event. At this stage the complete snapshot of process instance is taken, that includes
+
+* process instance metadata such as id, proces id, state, description, start date etc.
+* active node instances including their variables
+* process instance variables
+
+Process instance metadata is persisted with predefined protobuf schema that is aware of the metadata and support node instance that can be wait states.
+
+Process instance and node instance variables are persisted based on the generated protobuf schema and generated marshallers. This allows to use custom data types within the process definition and ensure the data is properly persisted during execution.
+
+In case of straight-through process instances, persistence is not even invoked as there is nothing to be stored since process instance has reached its final state.
