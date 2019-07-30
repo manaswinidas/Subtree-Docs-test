@@ -1,0 +1,42 @@
+= Overview
+
+Kogito supports (since version 0.3.0) a runtime persistence for workflows. That allows users to configure key value based storage backed by Infinispan to persist data (including active nodes and process instance variables) to preserve it across restarts.
+
+== What is persisted?
+
+Runtime persistence focuses mainly on storing data that are required to resume workflow execution for particular process instance. Regardless if the process is public or provide as long as it's not completed it subject for persistence.
+
+=== Node instances
+
+Node instances that are currently active, so called wait states, are persisted when process instance finished execution but have not reached end state (completed or aborted). This means that only information required to resume are persisted. There might be one or more active nodes instances stored at any given point in time.
+
+=== Process instance variables
+
+All data that are included in the process instance are stored together with the process instance itself. These must be marshalled into a bytes format so it can be easily transferred over the wire and persisted into the key value storage. 
+The marshalling and unmarshalling is implemented based on ProtoBuf and requires to have schema and marshallers available to know how to deal with given type of data.
+
+Luckily Kogito comes with out of the box support to generate both marshallers and Protobuf schema (aka proto files). During build of the project, Kogito will scan all process definitions and extract information about data that are used within these business assets.
+
+Next, based on the unique data types (regardless how many processes reference given type) a proto file (`kogito-application.proto`) is generated that builds up a complete schema for the application. This file is stored in the `target/classes/persistence/` folder after successful build.
+
+[source, plain]
+----
+syntax = "proto2";
+package org.kie.kogito.examples;
+import "kogito-types.proto";
+
+message Order {
+        option java_package = "org.kie.kogito.examples.demo";
+        optional string orderNumber = 1;
+        optional bool shipped = 2;
+        optional double total = 3;
+}
+message Person {
+        option java_package = "org.kie.kogito.examples.demo";
+        optional bool adult = 1;
+        optional int32 age = 2;
+        optional string name = 3;
+}
+----
+
+NOTE: Each `kogito-application.proto` file imports `kogito-types.proto` which defines base types automatically managed by Kogito.
