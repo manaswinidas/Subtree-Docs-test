@@ -180,3 +180,7 @@ Process instance metadata is persisted with predefined protobuf schema that is a
 Process instance and node instance variables are persisted based on the generated protobuf schema and generated marshallers. This allows to use custom data types within the process definition and ensure the data is properly persisted during execution.
 
 In case of straight-through process instances, persistence is not even invoked as there is nothing to be stored since process instance has reached its final state.
+
+=== How is it controlled?
+
+Persistence is plugged into Unit of Work that allows to level of control of the execution. The default implementation delays any persistence related work until the unit of work is completed. That usually means a request is about to finish or the message is consumed.
