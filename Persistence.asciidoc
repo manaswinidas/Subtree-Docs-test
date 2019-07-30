@@ -4,6 +4,78 @@ Kogito supports (since version 0.3.0) a runtime persistence for workflows. That 
 
 Version of Infinispan currently used is 10.0.0.Beta4
 
+== Configure
+
+To enable it in the project there are two steps required
+
+* add maven dependencies
+* configure connection with Infinispan server
+
+NOTE: as prerequisite Infinispan server must be installed and available over network
+
+Configuration will differ depending on selected runtime (Quarkus or SpringBoot)
+
+=== Quarkus
+
+==== Add maven dependencies
+
+[source, xml]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-infinispan-client</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.kie.kogito</groupId>
+  <artifactId>infinispan-persistence-addon</artifactId>
+  <version>${kogito.version}</version>
+</dependency>
+----
+
+==== Configure connection with Infinispan server
+
+Add following into the `src/main/resources/application.properties` file
+
+[source, plain]
+----
+quarkus.infinispan-client.server-list=localhost:11222
+----
+
+NOTE: Adjust the host and port number according to your Infinispan server installation.
+
+
+=== SpringBoot
+
+==== Add maven dependencies
+
+[source, xml]
+----
+<dependency>
+  <groupId>org.kie.kogito</groupId>
+  <artifactId>infinispan-persistence-addon</artifactId>
+  <version>${kogito.version}</version>
+</dependency>
+<dependency>
+  <groupId>org.infinispan</groupId>
+  <artifactId>infinispan-spring-boot-starter-remote</artifactId>
+  <version>${infinispan-spring-boot.version}</version>
+</dependency>
+----
+
+==== Configure connection with Infinispan server
+
+Add following into the `src/main/resources/application.properties` file
+
+[source, plain]
+----
+infinispan.remote.server-list=127.0.0.1:11222
+----
+
+NOTE: Adjust the host and port number according to your Infinispan server installation.
+
+
+This is minimal configuration to make it work and obviously does not cover all possible aspects of configuration. Refer to Infinispan configuration options based on selected runtime to learn more.
+
 == What is persisted?
 
 Runtime persistence focuses mainly on storing data that are required to resume workflow execution for particular process instance. Regardless if the process is public or provide as long as it's not completed it subject for persistence.
