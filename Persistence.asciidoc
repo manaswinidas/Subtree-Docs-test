@@ -53,3 +53,43 @@ Main rule is to try to stick to POJO/JavaBeans as data types that represent proc
 
 Currently following data types are supported:
 
+[cols="20%,60%,20%"]
+|===
+|Type |Description |Since version 
+
+|java.lang.String
+|Basic text type
+|0.3.0
+
+|java.lang.Integer
+|Basic number type
+|0.3.0
+
+|java.lang.Long
+|Extended size number type
+|0.3.0
+
+|java.lang.Float
+|Basic floating point number type
+|0.3.0
+
+|java.lang.Double
+|Extended size floating point number type
+|0.3.0
+
+|java.util.Date
+|Basic date type
+|0.3.0
+
+|POJO/JavaBean
+|POJO type that is build up from above simple types
+|0.3.0
+
+|POJO/JavaBean with another POJO
+|POJO type that is build up from above simple types and another POJOs
+|0.3.0
+
+|POJO/JavaBean with list of POJOs
+|POJO type that is build up from above simple types and another POJOs and List of POJOs
+|0.3.0
+|===
