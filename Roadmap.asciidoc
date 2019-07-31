@@ -19,7 +19,7 @@
 * data index service initial implementation to enable management and human task centric use cases
 * events for runtime based on CloudEvents - this is an integration between runtime services and data index service
 * enable domain specific metrics - mainly data driven to be available for dashboards
-* operator to provision SSO and inject system tokens into containers so they can interact smoothly
+* new version of operator with a new redesign and smoothly integration with service discovery engine
 * open tracing for any service interaction from within a process or decision
 * first version of BPMN VSCode editor
 
@@ -32,6 +32,7 @@
 * variable tagging to allow adding labels to variables to describe their relevance
 * configurable human tasks life cycle to allow control over what is needed to work on user assigned tasks
 * data index service searching capabilities based on domain data
+* operator to provision SSO and inject system tokens into containers so they can interact smoothly
 * operator provision data index and runtime storage on demand
 * operator discover and automatically register metrics endpoints in OpenShift provisioned Prometheus
 * first version of DMN VSCode editor
