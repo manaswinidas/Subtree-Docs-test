@@ -181,6 +181,9 @@ Process instance and node instance variables are persisted based on the generate
 
 In case of straight-through process instances, persistence is not even invoked as there is nothing to be stored since process instance has reached its final state.
 
+Each process definition will have its own cache for storing runtime information. That is based on process id and as such will be named in the Infinispan server. Cache is automatically created if it does not exists.
+That kind of setup allows for easier maintenance of individual process instance data and reduces concurrency on the cache instances as well.
+
 === How is it controlled?
 
 Persistence is plugged into Unit of Work that allows to level of control of the execution. The default implementation delays any persistence related work until the unit of work is completed. That usually means a request is about to finish or the message is consumed.
