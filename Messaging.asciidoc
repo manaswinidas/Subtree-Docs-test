@@ -1,0 +1,68 @@
+Messaging that can be both input and output of the process execution. 
+
+image::https://github.com/mswiderski/kogito-quickstarts/blob/master/kogito-kafka-quickstart-quarkus/docs/images/process.png[Message based process image]
+
+This is realised by message start and end events that require
+
+* message name which maps to the actual channel that delivers messages
+* message payload which maps to a process instance variable
+
+image::https://github.com/mswiderski/kogito-quickstarts/blob/master/kogito-kafka-quickstart-quarkus/docs/images/message-definition.png[Message definition]
+
+Configuration of the marshalling is dependant on the actual messaging solution being used.
+
+# Quarkus 
+
+## Apache Kafka Configuration 
+
+### Install and configure Apache Kafka
+
+Install Apache Kafka in the preferred way and create new topic named `kogito-processinstances-events`
+
+#### Add dependency
+
+Add following into the pom.xml of the application.
+
+[source, xml]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
+</dependency>
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-kafka-client</artifactId>
+</dependency>
+----
+
+#### Configure messaging channel
+
+Edit `application.properties` file located under `src/main/resources` and add following entries
+
+Add following for message start event 
+
+[source, plain]
+----
+mp.messaging.incoming.travellers.connector=smallrye-kafka
+mp.messaging.incoming.travellers.topic=travellers
+mp.messaging.incoming.travellers.value.deserializer=org.acme.travel.json.TravellerJsonbDeserializer
+----
+
+where `.travellers.` is the name that matches the message name of the message start event.
+
+Deserialization depends on type of data to be received, it can be based on JSONB that comes with Quarkus Kafka-client extension or it can be any of the standard types Apache Kafka comes with.
+
+Add following for message end event 
+
+[source, plain]
+----
+mp.messaging.outgoing.processedtravellers.connector=smallrye-kafka
+mp.messaging.outgoing.processedtravellers.topic=processedtravellers
+mp.messaging.outgoing.processedtravellers.value.serializer=org.acme.travel.json.TravellerJsonbSerializer
+----
+
+where `.processedtravellers.` is the name that matches the message name of the message end event.
+
+Serialization depends on type of data to be received, it can be based on JSONB that comes with Quarkus Kafka-client extension or it can be any of the standard types Apache Kafka comes with.
+
+
