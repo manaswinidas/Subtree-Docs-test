@@ -1,0 +1,91 @@
+# Configuration of the runtime
+
+There are several configuration that can be needed when implementing Kogito enabled applications. Some (but not all) are
+
+* registering work item handlers
+* registering event listeners
+* enabling metrics
+* enabling persistence
+* enabling events produced by runtimes
+
+These various items might require dependencies setup, code and configuration in the application.properties file.
+
+## Registering work item handlers
+
+To be able to use custom service tasks a work item handlers must be registered. Once the work item handler is implemented to can be either packaged in the application itself or as dependency of the application.
+
+`WorkItemHandlerConfig` class should be created to provide custom work item handlers. It must implement `org.kie.kogito.process.WorkItemHandlerConfig` although recommended is to always extend the default implementation (`org.kie.kogito.process.impl.DefaultWorkItemHandlerConfig`) to benefit from the out of the box provided handlers as well.
+
+[source, java]
+----
+@ApplicationScoped
+public class CustomWorkItemHandlerConfig extends DefaultWorkItemHandlerConfig {{
+    register("MyServiceTask", new MyServiceWorkItemHandler());
+}}
+----
+
+NOTE: These classes are meant to be injectable so ensure you properly annotate the class (`@ApplicationScoped`/`@Component`) so they can be found and registered.
+
+You can also take advantage of life cycle method like `@PostConstruct` and `@PreDestroy` to manage your handlers.
+
+## Registering event listeners
+
+Event listeners are registered in similar way as work item handlers. Though these are separated into rule or process related event listeners and as such are implementing different interfaces.
+
+* `org.kie.kogito.process.ProcessEventListenerConfig`
+* `org.kie.kogito.rules.RuleEventListenerConfig`
+
+same as with work item handlers it's recommended to always extend the default implementation of the config class
+
+* `org.kie.kogito.process.impl.DefaultProcessEventListenerConfig`
+* `org.drools.core.config.DefaultRuleEventListenerConfig`
+
+[source, java]
+----
+@ApplicationScoped
+public class ProcessEventListenerConfig extends DefaultProcessEventListenerConfig {
+   
+    public ProcessEventListenerConfig() {
+        super(new CustomProcessEventListener());
+    }
+}
+----
+
+[source, java]
+----
+@ApplicationScoped
+public class RuleEventListenerConfig extends DefaultRuleEventListenerConfig {
+
+    public RuleEventListenerConfig() {
+        super(new CustomRuleEventListener());
+    }
+}
+----
+
+NOTE: These classes are meant to be injectable so ensure you properly annotate the class (`@ApplicationScoped`/`@Component`) so they can be found and registered.
+
+## Enabling metrics
+
+Kogito comes with base coverage for processes and rules evaluation. These can be directly exposed via HTTP endpoint. It is based on Prometheus and the content it serves is in that format as well so can be directly consumed by Prometheus server.
+
+### Add dependencies
+
+Add following dependency to your project pom.xml
+
+[source, xml]
+----
+<dependency>
+  <groupId>org.kie.kogito</groupId>
+  <artifactId>monitoring-prometheus-addon</artifactId>
+  <version>${kogito.version}</version>
+</dependency>
+----
+
+### Register event listeners
+
+Depending on capabilities of Kogito used in the service you might register either or both of the following listeners
+
+* `org.kie.addons.monitoring.process.PrometheusProcessEventListener`
+* `org.kie.addons.monitoring.rule.PrometheusMetricsDroolsListener`
+
+See section about registering event listeners to learn more about it.
