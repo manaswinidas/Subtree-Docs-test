@@ -22,6 +22,11 @@
 * new version of operator with a new redesign and smoothly integration with service discovery engine
 * open tracing for any service interaction from within a process or decision
 * first version of BPMN VSCode editor
+* initial data source and data stream implementation
+* rule units support with concurrent rule unit prototype
+* rule unit automated endpoint generation with query response
+* automated POJO REST endpoint generation
+
 
 # 0.4.0
 
@@ -36,6 +41,10 @@
 * operator provision data index and runtime storage on demand
 * operator discover and automatically register metrics endpoints in OpenShift provisioned Prometheus
 * first version of DMN VSCode editor
+* integrate Rules with jBPM codegen
+* exopose KieBase and KieSession configuration options also in rule units
+* remove MVEL dependency
+* first automatically generated REST endpoint for DMN 
 
 # 0.5.0
 
@@ -47,6 +56,11 @@
 * timer and job service + timers in the process at least intermediate and boundary timers
 * operator to provision timer service on-demand, meaning only then runtime service uses timers and de-provision when no longer needed
 * published version of VSCode editors for BPMN and DMN
+* migrate jBPM use of rule flow groups to rule units
+* conditional rule execution using jBPM as coordinator
+* Drools Operator
+* DMN Operator
+* DMN support in Quarkus Extension (dev mode)
 
 # 0.6.0
 
@@ -58,6 +72,11 @@
 * operator to provision complete environment including sso, management console, task inbox, timer service and runtime services
 * multi tenant task inbox
 * VSCode extension to provide additional capabilities for developers - test, debug, deploy etc
+* ensure DMN and BPMN integration works
+* temporized rule unit execution through jBPM timer service
+* management console: lightweight "explainable AI"; tracing rule execution
+* parallel execution of rule units (prototype) 
+
 
 # 1.0.0
 
