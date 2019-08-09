@@ -2,7 +2,7 @@ image::http://design.jboss.org/kogito/logo/final/PNG/kogito_logo_rgb_color_horiz
 
 = Overview
 
-:version: 0.1.3
+:version: 0.2.0
 
 Kogito is cloud-native business automation for building intelligent applications, backed by battle-tested capabilities.
 
