@@ -142,6 +142,75 @@ IMPORTANT: these events are produced only when the execution finished successful
 
 In case there are multiple process instances executed within single request/unit of work each process instance will be given a dedicated event.
 
+[source, json]
+----
+{
+  "specversion": "0.3",
+  "id": "f52af50c-4fe2-4581-9184-7ad48137fb3f",
+  "source": null,
+  "type": "ProcessInstanceEvent",
+  "time": "2019-08-05T17:47:49.019494+02:00[Europe/Warsaw]",
+  "data": {
+    "id": "c1aced49-399b-4938-9071-b2ffa3fb7045",
+    "parentInstanceId": null,
+    "rootInstanceId": null,
+    "processId": "deals",
+    "processName": "SubmitDeal",
+    "startDate": 1565020069015,
+    "endDate": null,
+    "state": 1,
+    "nodeInstances": [
+      {
+        "id": "a8fe24c4-27a5-4869-85df-16e9f170f2c4",
+        "nodeId": "2",
+        "nodeDefinitionId": "CallActivity_1",
+        "nodeName": "Call a deal",
+        "nodeType": "SubProcessNode",
+        "triggerTime": 1565020069015,
+        "leaveTime": null
+      },
+      {
+        "id": "7a3bf1b1-b167-4928-969d-20bddf16c87a",
+        "nodeId": "1",
+        "nodeDefinitionId": "StartEvent_1",
+        "nodeName": "StartProcess",
+        "nodeType": "StartNode",
+        "triggerTime": 1565020069015,
+        "leaveTime": 1565020069015
+      }
+    ],
+    "variables": {
+      "name": "my fancy deal",
+      "traveller": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "jon.doe@example.com",
+        "nationality": "American",
+        "address": {
+          "street": "main street",
+          "city": "Boston",
+          "zipCode": "10005",
+          "country": "US"
+        }
+      }
+    }
+  },
+  "kogitoProcessinstanceId": "c1aced49-399b-4938-9071-b2ffa3fb7045",
+  "kogitoParentProcessinstanceId": null,
+  "kogitoRootProcessinstanceId": null,
+  "kogitoProcessId": "deals",
+  "kogitoProcessinstanceState": "1"
+}
+----
+
+The event itself is in format of CloudEvent so can be easily consumed, it comes with few extensions to allow event routing based on the event metadata without looking into the body of the event
+
+* kogitoProcessinstanceId
+* kogitoParentProcessinstanceId
+* kogitoRootProcessinstanceId
+* kogitoProcessId
+* kogitoProcessinstanceState
+
 ### Publishing events
 
 Events by default are only emitted when there is at least on published defined. There might be many event publishers that can be used to send/publish these events into different channels etc.
@@ -152,3 +221,39 @@ By default there are message based event publishers shipped with Kogito
 * Spring Kafka based that allows to send events to Kafka and is dedicated to runtimes based on Spring Boot
 
 Additional event producers can be developed by implementing `org.kie.kogito.event.EventPublisher` that needs to be annotated with respective annotations for bean discovery.
+
+### Configure event publisher for Quarkus based runtime
+
+#### Install and configure Apache Kafka
+
+Install Apache Kafka in the preferred way and create new topic named `kogito-processinstances-events`
+
+#### Add dependency
+
+Add following into the pom.xml of the application.
+
+[source, xml]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.kie.kogito</groupId>
+  <artifactId>kogito-events-reactive-messaging-addon</artifactId>
+  <version>${kogito.version}</version>
+</dependency>
+----
+
+#### Configure messaging channel
+
+Edit `application.properties` file located under `src/main/resources` and add following entries
+
+[source, plain]
+----
+mp.messaging.outgoing.kogito-processinstances-events.connector=smallrye-kafka
+mp.messaging.outgoing.kogito-processinstances-events.topic=kogito-processinstances-events
+mp.messaging.outgoing.kogito-processinstances-events.value.serializer=org.apache.kafka.common.serialization.StringSerializer
+----
+
+Start the application and on each request (that actually modifies the state of a process instance) you should see new messages to show up on the `kogito-processinstances-events` topic.
