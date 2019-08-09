@@ -22,9 +22,9 @@
 * new version of operator with a new redesign and smoothly integration with service discovery engine
 * open tracing for any service interaction from within a process or decision
 * first version of BPMN VSCode editor
-* initial data source and data stream implementation
-* rule units support with concurrent rule unit prototype
-* rule unit automated endpoint generation with query response
+* initial Data Source and Data Stream implementation
+* Rule Unit support with concurrent Rule Unit prototype
+* Rule Unit automated endpoint generation with query response
 * automated POJO REST endpoint generation
 
 
@@ -42,7 +42,7 @@
 * operator discover and automatically register metrics endpoints in OpenShift provisioned Prometheus
 * first version of DMN VSCode editor
 * integrate Rules with jBPM codegen
-* exopose KieBase and KieSession configuration options also in rule units
+* exopose KieBase and KieSession configuration options also in Rule Units
 * remove MVEL dependency
 * first automatically generated REST endpoint for DMN 
 
