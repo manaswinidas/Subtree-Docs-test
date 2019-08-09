@@ -20,6 +20,7 @@
 * events for runtime based on CloudEvents - this is an integration between runtime services and data index service
 * enable domain specific metrics - mainly data driven to be available for dashboards
 * new version of operator with a new redesign and smoothly integration with service discovery engine
+* introduce the kogito cli for operator
 * open tracing for any service interaction from within a process or decision
 * first version of BPMN VSCode editor
 * initial Data Source and Data Stream implementation
