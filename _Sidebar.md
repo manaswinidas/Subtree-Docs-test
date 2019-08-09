@@ -13,6 +13,7 @@
       <ul>
         <li><a href="https://github.com/kiegroup/kogito-runtimes/wiki/What's-supported-for-process-design%3F">Supported constructs</a></li>
         <li><a href="https://github.com/kiegroup/kogito-runtimes/wiki/Persistence">Persistence</a>  </li>
+<li><a href="https://github.com/kiegroup/kogito-runtimes/wiki/Messaging">Messaging</a>  </li>
       </ul>
      </li>
     </ul>
