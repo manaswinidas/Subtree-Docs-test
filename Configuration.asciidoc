@@ -88,4 +88,67 @@ Depending on capabilities of Kogito used in the service you might register eithe
 * `org.kie.addons.monitoring.process.PrometheusProcessEventListener`
 * `org.kie.addons.monitoring.rule.PrometheusMetricsDroolsListener`
 
-See section about registering event listeners to learn more about it.
+To enable process related metrics create ProcessEventListenerConfig class or add the Prometheus listener (`org.kie.addons.monitoring.process.PrometheusProcessEventListener`) to already existing config class.
+
+[source, java]
+----
+@ApplicationScoped
+public class ProcessEventListenerConfig extends DefaultProcessEventListenerConfig {
+   
+    public ProcessEventListenerConfig() {
+        super(new PrometheusProcessEventListener("acme-travels"));
+    }
+}
+----
+
+
+To enable rule related metrics create RuleEventListenerConfig class or add the Prometheus listener (`org.kie.addons.monitoring.rule.PrometheusMetricsDroolsListener`) to already existing config class.
+
+[source, java]
+----
+@ApplicationScoped
+public class RuleEventListenerConfig extends DefaultRuleEventListenerConfig {
+
+    public RuleEventListenerConfig() {
+        super(new PrometheusMetricsDroolsListener("acme-travels"));
+    }
+}
+----
+
+NOTE: There is single argument for both classes and that is identifier that describes the data coming from the runtimes. It can be used to group the metrics later on when visualising them.
+
+## Enabling persistence
+
+See https://github.com/kiegroup/kogito-runtimes/wiki/Persistence[Persistence section] to learn more about persistence and how to enable it.
+
+
+## Enable runtime events
+
+Runtimes can produce events based on processed data. Currently this mainly applies to process execution but will most likely be expanded to cover also decisions and rules.
+
+### Process runtime events
+
+Runtime engine can emit events based on the execution context of given request (aka unit of work). The main aim for these events is to notify 3rd parties about changes to the process instance and its data. To avoid too many events being sent and to optimise both producer and consumer side there will be only one event per process instance emitted. 
+
+That event will consists of relevant information such as
+
+* process instance metadata e.g. process id, process instance id, process instance state, etc
+* node instances executed, list of all node instances that have been triggered/left during the execution
+* variables - current state of variables after the execution
+
+These events will provide complete view over the process instances being executed without need to respond to individual events that can be consumed via ProcessEventListener.
+
+IMPORTANT: these events are produced only when the execution finished successfully, meaning without any errors during the course of execution.
+
+In case there are multiple process instances executed within single request/unit of work each process instance will be given a dedicated event.
+
+### Publishing events
+
+Events by default are only emitted when there is at least on published defined. There might be many event publishers that can be used to send/publish these events into different channels etc.
+
+By default there are message based event publishers shipped with Kogito
+
+* Reactive message based that allows to send events to Kafka, AMQP, MQTT, Camel and this is used for Quarkus based runtimes
+* Spring Kafka based that allows to send events to Kafka and is dedicated to runtimes based on Spring Boot
+
+Additional event producers can be developed by implementing `org.kie.kogito.event.EventPublisher` that needs to be annotated with respective annotations for bean discovery.
