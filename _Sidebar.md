@@ -8,6 +8,7 @@
         <li><a href="https://github.com/kiegroup/kogito-runtimes/wiki/Administrator-workflow">Administrator</a></li>
       </ul>
      </li>
+     <li><a href="https://github.com/kiegroup/kogito-runtimes/wiki/Configuration">Configuration</a></li>
      <li>Processes
       <ul>
         <li><a href="https://github.com/kiegroup/kogito-runtimes/wiki/What's-supported-for-process-design%3F">Supported constructs</a></li>
