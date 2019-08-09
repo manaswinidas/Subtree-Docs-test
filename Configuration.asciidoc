@@ -257,3 +257,66 @@ mp.messaging.outgoing.kogito-processinstances-events.value.serializer=org.apache
 ----
 
 Start the application and on each request (that actually modifies the state of a process instance) you should see new messages to show up on the `kogito-processinstances-events` topic.
+
+### Configure event publisher for SprintBoot based runtime
+
+#### Install and configure Apache Kafka
+
+Install Apache Kafka in the preferred way and create new topic named `kogito-processinstances-events`
+
+#### Add dependency
+
+Add following into the pom.xml of the application.
+
+[source, xml]
+----
+<dependency>
+  <groupId>org.springframework.kafka</groupId>
+  <artifactId>spring-kafka</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.kie.kogito</groupId>
+  <artifactId>kogito-events-spring-boot-addon</artifactId>
+  <version>${kogito.version}</version>
+</dependency>
+----
+
+#### Configure messaging channel
+
+Edit `application.properties` file located under `src/main/resources` and add following entries
+
+[source, plain]
+----
+kafka.bootstrapAddress=localhost:9092
+----
+
+### Produce Kafka related beans
+
+[source, java]
+----
+@Configuration
+public class KafkaProducerConfig {
+
+    @Value(value = "${kafka.bootstrapAddress}")
+    private String bootstrapAddress;
+
+    
+    @Bean
+    public ProducerFactory<String, String> producerFactory() {
+        Map<String, Object> configProps = new HashMap<>();
+        configProps.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
+        configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);        
+        configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        return new DefaultKafkaProducerFactory<>(configProps);
+    }
+    
+    @Bean
+    public KafkaTemplate<String, String> kafkaTemplate() {
+        return new KafkaTemplate<>(producerFactory());
+    }
+    
+}
+----
+
+Start the application and on each request (that actually modifies the state of a process instance) you should see new messages to show up on the `kogito-processinstances-events` topic.
