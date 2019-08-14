@@ -1,0 +1,657 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Persistence · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="What-is-supported-for-process-design.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Home.html">
+            
+                <a href="Home.html">
+            
+                    
+                    Home
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Roadmap.html">
+            
+                <a href="Roadmap.html">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="_Sidebar.html">
+            
+                <a href="_Sidebar.html">
+            
+                    
+                    Usage workflows
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="Developer-workflow.html">
+            
+                <a href="Developer-workflow.html">
+            
+                    
+                    Developer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="Administrator-workflow.html">
+            
+                <a href="Administrator-workflow.html">
+            
+                    
+                    Administrator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="_Sidebar.html">
+            
+                <a href="_Sidebar.html">
+            
+                    
+                    Processes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="What-is-supported-for-process-design.html">
+            
+                <a href="What-is-supported-for-process-design.html">
+            
+                    
+                    Supported constructs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3.2" data-path="Persistence.html">
+            
+                <a href="Persistence.html">
+            
+                    
+                    Persistence
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Persistence</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="overview">Overview</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Kogito supports (since version 0.3.0) a runtime persistence for workflows. That allows users to configure key value based storage backed by <a href="https://infinispan.org" target="_blank">Infinispan</a> to persist data (including active nodes and process instance variables) to preserve it across restarts.</p>
+</div>
+<div class="paragraph">
+<p>Version of Infinispan currently used is 10.0.0.Beta4</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configure">Configure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To enable it in the project there are two steps required</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>add maven dependencies</p>
+</li>
+<li>
+<p>configure connection with Infinispan server</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+as prerequisite Infinispan server must be installed and available over network
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Configuration will differ depending on selected runtime (Quarkus or SpringBoot)</p>
+</div>
+<div class="sect2">
+<h3 id="_quarkus">Quarkus</h3>
+<div class="sect3">
+<h4 id="_add_maven_dependencies">Add maven dependencies</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.quarkus<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>quarkus-infinispan-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.kie.kogito<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>infinispan-persistence-addon<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${kogito.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configure_connection_with_infinispan_server">Configure connection with Infinispan server</h4>
+<div class="paragraph">
+<p>Add following into the <code>src/main/resources/application.properties</code> file</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-plain" data-lang="plain">quarkus.infinispan-client.server-list=localhost:11222</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Adjust the host and port number according to your Infinispan server installation.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_springboot">SpringBoot</h3>
+<div class="sect3">
+<h4 id="_add_maven_dependencies_2">Add maven dependencies</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.kie.kogito<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>infinispan-persistence-addon<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${kogito.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.infinispan<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>infinispan-spring-boot-starter-remote<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>${infinispan-spring-boot.version}<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configure_connection_with_infinispan_server_2">Configure connection with Infinispan server</h4>
+<div class="paragraph">
+<p>Add following into the <code>src/main/resources/application.properties</code> file</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-plain" data-lang="plain">infinispan.remote.server-list=127.0.0.1:11222</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Adjust the host and port number according to your Infinispan server installation.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This is minimal configuration to make it work and obviously does not cover all possible aspects of configuration. Refer to Infinispan configuration options based on selected runtime to learn more.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_what_is_persisted">What is persisted?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Runtime persistence focuses mainly on storing data that are required to resume workflow execution for particular process instance. Regardless if the process is public or provide as long as it&#x2019;s not completed it subject for persistence.</p>
+</div>
+<div class="sect2">
+<h3 id="_node_instances">Node instances</h3>
+<div class="paragraph">
+<p>Node instances that are currently active, so called wait states, are persisted when process instance finished execution but have not reached end state (completed or aborted). This means that only information required to resume are persisted. There might be one or more active nodes instances stored at any given point in time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_process_instance_variables">Process instance variables</h3>
+<div class="paragraph">
+<p>All data that are included in the process instance are stored together with the process instance itself. These must be marshalled into a bytes format so it can be easily transferred over the wire and persisted into the key value storage.
+The marshalling and unmarshalling is implemented based on ProtoBuf and requires to have schema and marshallers available to know how to deal with given type of data.</p>
+</div>
+<div class="paragraph">
+<p>Luckily Kogito comes with out of the box support to generate both marshallers and Protobuf schema (aka proto files). During build of the project, Kogito will scan all process definitions and extract information about data that are used within these business assets.</p>
+</div>
+<div class="paragraph">
+<p>Next, based on the unique data types (regardless how many processes reference given type) a proto file (<code>kogito-application.proto</code>) is generated that builds up a complete schema for the application. This file is stored in the <code>target/classes/persistence/</code> folder after successful build.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-plain" data-lang="plain">syntax = &quot;proto2&quot;;
+package org.kie.kogito.examples;
+import &quot;kogito-types.proto&quot;;
+
+message Order {
+        option java_package = &quot;org.kie.kogito.examples.demo&quot;;
+        optional string orderNumber = 1;
+        optional bool shipped = 2;
+        optional double total = 3;
+}
+message Person {
+        option java_package = &quot;org.kie.kogito.examples.demo&quot;;
+        optional bool adult = 1;
+        optional int32 age = 2;
+        optional string name = 3;
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Each <code>kogito-application.proto</code> file imports <code>kogito-types.proto</code> which defines base types automatically managed by Kogito.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Based on the <code>kogito-application.proto</code> file, marshallers are also generated and configured in the application so whenever particular data type is used in process instance it can be successfully marshalled and unmarshalled.</p>
+</div>
+<div class="paragraph">
+<p>Marshallers are based on the subproject of Infinispan called <a href="https://github.com/infinispan/protostream" target="_blank">protostream</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_supported_data_types">Supported data types</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Main rule is to try to stick to POJO/JavaBeans as data types that represent process variables. While doing that out of the box generation will provide most benefits. Diverging from it pose quite high probability of failed generation and by that failed build.</p>
+</div>
+<div class="paragraph">
+<p>Currently following data types are supported:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 60%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Since version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Basic text type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.3.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Basic number type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.3.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extended size number type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.3.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.Float</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Basic floating point number type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.3.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.lang.Double</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extended size floating point number type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.3.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">java.util.Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Basic date type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.3.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POJO/JavaBean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POJO type that is build up from above simple types</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.3.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POJO/JavaBean with another POJO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POJO type that is build up from above simple types and another POJOs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.3.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POJO/JavaBean with list of POJOs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POJO type that is build up from above simple types and another POJOs and List of POJOs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0.3.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_it_is_persisted">How it is persisted?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Process instance is persisted as soon as it reaches a wait state, meaning it does not execute anymore but has not reached yet the final state (complete or abort). An example of such wait state is user task, or signal catch event. At this stage the complete snapshot of process instance is taken, that includes</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>process instance metadata such as id, proces id, state, description, start date etc.</p>
+</li>
+<li>
+<p>active node instances including their variables</p>
+</li>
+<li>
+<p>process instance variables</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Process instance metadata is persisted with predefined protobuf schema that is aware of the metadata and support node instance that can be wait states.</p>
+</div>
+<div class="paragraph">
+<p>Process instance and node instance variables are persisted based on the generated protobuf schema and generated marshallers. This allows to use custom data types within the process definition and ensure the data is properly persisted during execution.</p>
+</div>
+<div class="paragraph">
+<p>In case of straight-through process instances, persistence is not even invoked as there is nothing to be stored since process instance has reached its final state.</p>
+</div>
+<div class="paragraph">
+<p>Each process definition will have its own cache for storing runtime information. That is based on process id and as such will be named in the Infinispan server. Cache is automatically created if it does not exists.
+That kind of setup allows for easier maintenance of individual process instance data and reduces concurrency on the cache instances as well.</p>
+</div>
+<div class="sect2">
+<h3 id="_how_is_it_controlled">How is it controlled?</h3>
+<div class="paragraph">
+<p>Persistence is plugged into Unit of Work that allows to level of control of the execution. The default implementation delays any persistence related work until the unit of work is completed. That usually means a request is about to finish or the message is consumed.</p>
+</div>
+</div>
+</div>
+</div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="What-is-supported-for-process-design.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Supported constructs">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Persistence","level":"1.2.3.2","depth":3,"previous":{"title":"Supported constructs","level":"1.2.3.1","depth":3,"path":"kogito-wiki/What-is-supported-for-process-design.asciidoc","ref":"kogito-wiki/What-is-supported-for-process-design.asciidoc","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kogito-wiki/Persistence.asciidoc","mtime":"2019-08-07T13:01:30.770Z","type":"asciidoc"},"gitbook":{"version":"3.2.3","time":"2019-08-09T12:46:49.885Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,9 @@
+
+. link:kogito-wiki/Home.asciidoc[Home]
+.. link:kogito-wiki/Roadmap.asciidoc[Roadmap]
+.. link:kogito-wiki/_Sidebar.md[Usage workflows]
+... link:kogito-wiki/Developer-workflow.asciidoc[Developer]
+... link:kogito-wiki/Administrator-workflow.asciidoc[Administrator]
+.. link:kogito-wiki/_Sidebar.md[Processes]
+... link:kogito-wiki/What-is-supported-for-process-design.asciidoc[Supported constructs]
+... link:kogito-wiki/Persistence.asciidoc[Persistence]

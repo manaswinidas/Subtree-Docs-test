@@ -1,0 +1,572 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Developer · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Administrator-workflow.html" />
+    
+    
+    <link rel="prev" href="_Sidebar.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Home.html">
+            
+                <a href="Home.html">
+            
+                    
+                    Home
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Roadmap.html">
+            
+                <a href="Roadmap.html">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="_Sidebar.html">
+            
+                <a href="_Sidebar.html">
+            
+                    
+                    Usage workflows
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.2.1" data-path="Developer-workflow.html">
+            
+                <a href="Developer-workflow.html">
+            
+                    
+                    Developer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="Administrator-workflow.html">
+            
+                <a href="Administrator-workflow.html">
+            
+                    
+                    Administrator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="_Sidebar.html">
+            
+                <a href="_Sidebar.html">
+            
+                    
+                    Processes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="What-is-supported-for-process-design.html">
+            
+                <a href="What-is-supported-for-process-design.html">
+            
+                    
+                    Supported constructs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="Persistence.html">
+            
+                <a href="Persistence.html">
+            
+                    
+                    Persistence
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Developer</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="paragraph">
+<p>Developer workflow in Kogito defines the most basic and common steps developers use to become effective. It should not enforce any additional practices and tries to stay as close to industry standard for app development.</p>
+</div>
+<div class="paragraph">
+<p>Although depending on selected technology stack (Quarkus or SpringBoot) there might be some differences.</p>
+</div>
+<h1 id="_single_ide" class="sect0">Single IDE</h1>
+<div class="paragraph">
+<p>The most important aspect is to let developers stay in single IDE to do their job, that means they should not be forced to move between apps to create different type of assets. With that said Kogito targets VSCode as the IDE and would provide editors and extension to ease the developer&#x2019;s life by providing</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>process editor to define workflows</p>
+</li>
+<li>
+<p>decision editor to define decision model, rules and decision tables</p>
+</li>
+<li>
+<p>take advantage of Java editor/language protocol in VSCode to allow</p>
+<div class="ulist">
+<ul>
+<li>
+<p>define data mode</p>
+</li>
+<li>
+<p>create services</p>
+</li>
+<li>
+<p>REST endpoints</p>
+</li>
+<li>
+<p>use java auto completion/syntax check while working in decisions and processes with code e.g. script tasks, gateway conditions etc</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>take advantage of JS and HTML editors to be able to build UI components</p>
+</li>
+<li>
+<p>take advantage of the debugging capabilities of the VSCode to look into running application</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Simply said, IDE should be the only needed tool to work on Kogito enabled apps and by that be integrated with any other framework used.</p>
+</div>
+<h1 id="_test_driven" class="sect0">Test driven</h1>
+<div class="paragraph">
+<p>Developers should be equipped with all needed tools to build Kogito enabled apps with test driven approach. That is to be able to build tests for the business assets like processes, rules and decisions in their IDE and to allow them to execute seamlessly</p>
+</div>
+<div class="sect1">
+<h2 id="_building_tests_for_processes_with_quarkustest">Building tests for processes with QuarkusTest</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Quarkus provides very convenient test support that Kogito integrates with, to create a test code process one would just use injection of the generated process and start instance of it</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java"><span class="hljs-meta">@QuarkusTest</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TravelTest</span> </span>{
+
+	<span class="hljs-meta">@Inject</span>
+	<span class="hljs-meta">@Named</span>(<span class="hljs-string">&quot;travels&quot;</span>) <span class="hljs-comment">// this is the process id from your process definition</span>
+	Process&lt;? extends Model&gt; travelsProcess;
+
+        <span class="hljs-meta">@Test</span>
+	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testTravelNoVisaRequired</span><span class="hljs-params">()</span> </span>{
+
+            Model m = travelsProcess.createModel();
+            Map&lt;String, Object&gt; parameters = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+            parameters.put(<span class="hljs-string">&quot;traveller&quot;</span>, <span class="hljs-keyword">new</span> Traveller(<span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-string">&quot;Doe&quot;</span>, <span class="hljs-string">&quot;john.doe@example.com&quot;</span>, <span class="hljs-string">&quot;American&quot;</span>, <span class="hljs-keyword">new</span> Address(<span class="hljs-string">&quot;main street&quot;</span>, <span class="hljs-string">&quot;Boston&quot;</span>, <span class="hljs-string">&quot;10005&quot;</span>, <span class="hljs-string">&quot;US&quot;</span>)));
+            parameters.put(<span class="hljs-string">&quot;trip&quot;</span>, <span class="hljs-keyword">new</span> Trip(<span class="hljs-string">&quot;New York&quot;</span>, <span class="hljs-string">&quot;US&quot;</span>, <span class="hljs-keyword">new</span> Date(), <span class="hljs-keyword">new</span> Date()));
+
+            m.fromMap(parameters);
+
+            ProcessInstance&lt;?&gt; processInstance = travelsProcess.createInstance(m);
+            processInstance.start();
+	    ....
+
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Similar one would test the rules</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java"><span class="hljs-meta">@QuarkusTest</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">VisaRulesTest</span> </span>{
+
+
+	<span class="hljs-meta">@Inject</span>
+	KieRuntimeBuilder ruleRuntime;
+
+        <span class="hljs-meta">@Test</span>
+	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testVisaNotRequiredRule</span><span class="hljs-params">()</span> </span>{
+            Traveller traveller = <span class="hljs-keyword">new</span> Traveller(<span class="hljs-string">&quot;John&quot;</span>, <span class="hljs-string">&quot;Doe&quot;</span>, <span class="hljs-string">&quot;john.doe@example.com&quot;</span>, <span class="hljs-string">&quot;American&quot;</span>, <span class="hljs-keyword">new</span> Address(<span class="hljs-string">&quot;main street&quot;</span>, <span class="hljs-string">&quot;Boston&quot;</span>, <span class="hljs-string">&quot;10005&quot;</span>, <span class="hljs-string">&quot;US&quot;</span>));
+            Trip trip = <span class="hljs-keyword">new</span> Trip(<span class="hljs-string">&quot;New York&quot;</span>, <span class="hljs-string">&quot;US&quot;</span>, <span class="hljs-keyword">new</span> Date(), <span class="hljs-keyword">new</span> Date());
+
+            KieSession ksession = ruleRuntime.newKieSession();
+            ((InternalAgenda) ksession.getAgenda()).activateRuleFlowGroup(<span class="hljs-string">&quot;visas&quot;</span>);
+            ksession.insert(trip);
+            ksession.insert(traveller);
+            ksession.fireAllRules();
+
+            ksession.dispose();
+
+            assertFalse(trip.isVisaRequired());
+	}
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Tests should be written</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>as unit tests that test individual process or decision</p>
+</li>
+<li>
+<p>as integration tests that test set of processes and decision working together</p>
+</li>
+<li>
+<p>API tests that test the REST api of the application, this type of tests can also be applied to native images</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<h1 id="_development_mode" class="sect0">Development mode</h1>
+<div class="paragraph">
+<p>Development mode should allow fast feedback loop from code changes to running system. This applies to both local development and on OpenShift/Kubernetes. Kogito utilises development tools from the runtime frameworks like Quarkus or SpringBoot.</p>
+</div>
+<div class="paragraph">
+<p>There should be all integrated with the regular practices so the changes can be quickly and reliably reflected on running application/service.</p>
+</div>
+<div class="paragraph">
+<p>Quarkus Kogito extension is already supporting dev mode to generate code based on changed files and hot reload it on running service instance. This makes the work way more efficient and does not require extra build cycles to make changes available.</p>
+</div>
+<h1 id="_ide_extension" class="sect0">IDE extension</h1>
+<div class="paragraph">
+<p>IDE extension for Kogito specific features should be provided to developers to allow them to work with Kogito in the most effective way. Following is a list of features that the extension should provide</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>creation of new projects powered by Kogito - either quarkus or spring boot</p>
+</li>
+<li>
+<p>bootstrap project with predefined templates for business automation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>approval workflow</p>
+</li>
+<li>
+<p>service invocation/orchestration</p>
+</li>
+<li>
+<p>etc</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>adding and configuring service tasks (work items)</p>
+</li>
+<li>
+<p>provisioning local instance of</p>
+<div class="ulist">
+<ul>
+<li>
+<p>data index service</p>
+</li>
+<li>
+<p>timer service</p>
+</li>
+<li>
+<p>task inbox</p>
+</li>
+<li>
+<p>management console</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>debugger for decisions and processes</p>
+</li>
+</ul>
+</div>
+<h1 id="_deployment_to_cloud" class="sect0">Deployment to cloud</h1>
+<div class="paragraph">
+<p>Deployment of the build application to a cloud (based on OpenShift/Kubernetes) should be very smooth and based on Kogito Operator and its CLI which can also be integrated with the IDE extension.</p>
+</div>
+<div class="paragraph">
+<p>Deployment should allow to</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>deploy in development mode enabling remote dev mode</p>
+</li>
+<li>
+<p>deploy in production mode - jvm</p>
+</li>
+<li>
+<p>deploy in production mode - native image</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>this should also integrate with any CI/CD configured for the target cloud environment.</p>
+</div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="_Sidebar.html" class="navigation navigation-prev " aria-label="Previous page: Usage workflows">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Administrator-workflow.html" class="navigation navigation-next " aria-label="Next page: Administrator">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Developer","level":"1.2.2.1","depth":3,"next":{"title":"Administrator","level":"1.2.2.2","depth":3,"path":"kogito-wiki/Administrator-workflow.asciidoc","ref":"kogito-wiki/Administrator-workflow.asciidoc","articles":[]},"previous":{"title":"Usage workflows","level":"1.2.2","depth":2,"path":"kogito-wiki/_Sidebar.md","ref":"kogito-wiki/_Sidebar.md","articles":[{"title":"Developer","level":"1.2.2.1","depth":3,"path":"kogito-wiki/Developer-workflow.asciidoc","ref":"kogito-wiki/Developer-workflow.asciidoc","articles":[]},{"title":"Administrator","level":"1.2.2.2","depth":3,"path":"kogito-wiki/Administrator-workflow.asciidoc","ref":"kogito-wiki/Administrator-workflow.asciidoc","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kogito-wiki/Developer-workflow.asciidoc","mtime":"2019-08-07T13:01:30.769Z","type":"asciidoc"},"gitbook":{"version":"3.2.3","time":"2019-08-09T12:46:49.885Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
