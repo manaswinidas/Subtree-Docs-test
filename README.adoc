@@ -1,17 +1,17 @@
 # Subtree-Docs-test
 
-This is a test page to check the syncing of GitHub wiki and GitBook content for documentation
+This is a test repository to check the syncing of GitHub wiki and GitBook content for documentation
 
 ## Install gitbook dependencies
 
 `npm install`
 
-## Build and run gitbook in your local environment
+## Build and run kogito-wiki gitbook in your local environment
 
 ### Create the directories and files for a book from its SUMMARY.md file (if existing) using:
 `gitbook init`
 
-### You can serve a repository as a book using:
+### You can serve a repository as a gitbook using:
 `gitbook serve`
 
 ### Or simply build the static website using:
