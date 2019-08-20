@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/manaswinidas/Subtree-Docs-test/issues"
   },
-  "homepage": "https://github.com/manaswinidas/Subtree-Docs-test#readme"
+  "homepage": "https://github.com/manaswinidas/Subtree-Docs-test#readme",
+  "dependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
 }
