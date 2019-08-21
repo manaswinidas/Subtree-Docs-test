@@ -8,10 +8,12 @@ This is a test repository to check the syncing of GitHub wiki and GitBook conten
 
 ## Build and run kogito-wiki gitbook in your local environment
 
-### Create the directories and files for a book from its SUMMARY.md file (if existing) using:
+### Create the directories and files for a book from its SUMMARY.md file (if existing, in this case it is inside the kogito-wiki directory) using:
+`cd kogito-wiki`
+
 `gitbook init`
 
-### You can serve a repository as a gitbook using:
+### You can serve the kogito-wiki repository as a gitbook using:
 `gitbook serve`
 
 ### Or simply build the static website using:
