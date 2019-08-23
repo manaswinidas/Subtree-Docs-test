@@ -16,6 +16,7 @@
 <li><a href="https://github.com/kiegroup/kogito-runtimes/wiki/Messaging">Messaging</a>  </li>
       </ul>
      </li>
+     <li><a href="https://github.com/kiegroup/kogito-runtimes/wiki/Data-Index-Service">Data Index Service</a></li>
     </ul>
   </li>
 </ul>
