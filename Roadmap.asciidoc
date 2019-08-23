@@ -1,28 +1,27 @@
 # 0.2.0
 
-## Release date - mid July
+## Release date - mid-July
 
 ### Main themes of the release 
 
 * message start and end events that allow smooth integration with Apache Kafka and possibly other messaging
-* multi instance characteristic for service nodes and reusable subprocesses
+* multi-instance characteristic for service nodes and reusable subprocesses
 * Unit of Work support to allow finer control of execution and grouping related operations
 * refactor service discovery when running in Kubernetes based environments
 
 # 0.3.0
 
-## Release date - mid August
+## Release date - mid-August
 
 ### Main themes of the release 
 
 * runtime persistence based on Infinispan
-* data index service initial implementation to enable management and human task centric use cases
-* events for runtime based on CloudEvents - this is an integration between runtime services and data index service
-* enable domain specific metrics - mainly data driven to be available for dashboards
-* new version of operator with a new redesign and smoothly integration with service discovery engine
+* data index service initial implementation to enable management and human task-centric use cases
+* events for runtime based on CloudEvents - this is integration between runtime services and data index service
+* enable domain-specific metrics - mainly data-driven to be available for dashboards
+* new version of the operator with a new redesign and smooth integration with a service discovery engine
 * introduce the kogito cli for operator
 * open tracing for any service interaction from within a process or decision
-* first version of BPMN VSCode editor
 * initial Data Source and Data Stream implementation
 * Rule Unit support with concurrent Rule Unit prototype
 * Rule Unit automated endpoint generation with query response
@@ -31,24 +30,25 @@
 
 # 0.4.0
 
-## Release date - mid September
+## Release date - mid-September
 
 ### Main themes of the release 
 
 * variable tagging to allow adding labels to variables to describe their relevance
-* configurable human tasks life cycle to allow control over what is needed to work on user assigned tasks
+* configurable human tasks life cycle to allow control over what is needed to work on user-assigned tasks
 * data index service searching capabilities based on domain data
 * operator provision data index and runtime storage on demand
 * operator discover and automatically register metrics endpoints in OpenShift provisioned Prometheus
-* first version of DMN VSCode editor
 * integrate Rules with jBPM codegen
-* exopose KieBase and KieSession configuration options also in Rule Units
+* expose KieBase and KieSession configuration options also in Rule Units
 * remove MVEL dependency
 * first automatically generated REST endpoint for DMN 
+* BPMN VSCode editor alpha version
+* DMN VSCode editor alpha version
 
 # 0.5.0
 
-## Release date - mid October
+## Release date - mid-October
 
 ### Main themes of the release 
 
@@ -56,6 +56,7 @@
 * timer and job service + timers in the process at least intermediate and boundary timers
 * operator to provision timer service on-demand, meaning only then runtime service uses timers and de-provision when no longer needed
 * published version of VSCode editors for BPMN and DMN
+* BPMN/DMN chrome extension alpha
 * migrate jBPM use of rule flow groups to rule units
 * conditional rule execution using jBPM as coordinator
 * Drools Operator
@@ -65,14 +66,13 @@
 
 # 0.6.0
 
-## Release date - mid November
+## Release date - mid-November
 
 ### Main themes of the release 
 
 * management console that allows administrators of the business automation to have insights into running services and historical data
-* operator to provision complete environment including sso, management console, task inbox, timer service and runtime services
-* multi tenant task inbox
-* VSCode extension to provide additional capabilities for developers - test, debug, deploy etc
+* operator to provision complete environment including sso, management console, task inbox, timer service, and runtime services
+* multi-tenant task inbox
 * ensure DMN and BPMN integration works
 * temporized rule unit execution through jBPM timer service
 * management console: lightweight "explainable AI"; tracing rule execution
@@ -81,4 +81,4 @@
 
 # 1.0.0
 
-## Release date - mid December
+## Release date - mid-December
