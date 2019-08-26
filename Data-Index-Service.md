@@ -52,7 +52,7 @@ provided by Vert.X is the native integration with [Java GraphQL](https://www.gra
 
 Messaging integration is also provided by Quarkus using `quarkus-smallrye-reactive-messaging-kafka`. For more details and configuration details, visit [kafka-guide](https://quarkus.io/guides/kafka-guide) and [smallrye-reactive-messaging](https://smallrye.io/smallrye-reactive-messaging/).
 
-## Prerequisites
+## Getting started
 
 You will need:
  - Infinispan server:
@@ -67,7 +67,7 @@ You will need:
    ``` 
    For a compreensive list of options for setting up the Data Index Kafka consumer please visit: [configuring-the-kafka-connector](https://quarkus.io/guides/kafka-guide#configuring-the-kafka-connector) and [Kafka consumer configuration](https://kafka.apache.org/documentation/#consumerconfigs)
    
-## Running
+### Running
 
 As a Quarkus based application, running the service for development takes full benefit of the dev mode support with live code reloading.
 For that simply run:
@@ -78,12 +78,12 @@ mvn clean compile quarkus:dev
 Once the service is up and running, it will start consuming messages from the  Kafka topic named: `kogito-processinstances-events`.
 For more details on how to enable a Kogito runtime to produce events, please visit [publishing-events](https://github.com/kiegroup/kogito-runtimes/wiki/Configuration#publishing-events).
 
-When running on dev mode, the [GraphiQL](https://github.com/graphql/graphiql) UI is available, on http://localhost:8180/, which allows exploring and querying the available data model. Alternatively, it is also possible to use a GraphQL client API to communicate with the exposed endpoint at `http://localhost:8180/graphql`.
+When running on dev mode, the [GraphiQL](https://github.com/graphql/graphiql) UI is available, on `http://localhost:8180/`, which allows exploring and querying the available data model. Alternatively, it is also possible to use a GraphQL client API to communicate with the exposed endpoint at `http://localhost:8180/graphql`.
 
 In there you can explore the current types available using the Docs section on the top right and execute queries on the model.
 Some examples:
 
-### Querying the technical cache
+#### Querying the technical cache
 ```graphql
 {
   ProcessInstances {
@@ -103,7 +103,7 @@ Some examples:
 }
 ```  
 
-#### Filtering 
+##### Filtering 
 The provided GraphQL schema also allows for further filtering of the results. A filter attribute is optional and allows multiple combinations. A few examples:
 
 ```graphql
@@ -128,7 +128,7 @@ The provided GraphQL schema also allows for further filtering of the results. A 
 }
 ``` 
 
-### Querying the domain cache
+#### Querying the domain cache
 Assuming a Travels model is deployed
 ```graphql
 {
@@ -156,7 +156,7 @@ Assuming a Travels model is deployed
   }
 }
 ``` 
-#### Filtering
+##### Filtering
 Filtering the domain-specific cache is, at this stage, open to a simple string, which is based in Infinispan query API. Please note, that we do plan to replace this for a GraphQL typed search, similar to what is provided by the technical cache. This open search allows for some interesting searches such as:
 
 * List all Travels for travellers that first name starts with `ma`.
@@ -197,7 +197,7 @@ Filtering the domain-specific cache is, at this stage, open to a simple string, 
 }
 ``` 
 
-### Loading proto files from the file system
+#### Loading proto files from the file system
 To bootstrap the service using a set of proto files from a folder, simply pass the following property `kogito.protobuf.folder` and any .proto file contained in the folder will automatically be loaded when the application starts.
 You can also set up the service to reload/load any changes to files during the service execution by setting `kogito.protobuf.watch=true`.
 
