@@ -59,9 +59,9 @@ You will need:
    Download and run https://downloads.jboss.org/infinispan/10.0.0.Beta4/infinispan-server-10.0.0.Beta4.zip.
  Service will be available on port 11222. This should match the setting `quarkus.infinispan-client.server-list=localhost:11222` on `application.properties`.
    To enable our simplified demo setup, go to /server/conf/infinispan.xml and remove the security domain from the endpoints definition:
-```xml
-<endpoints socket-binding="default">
-```
+   ```xml
+   <endpoints socket-binding="default">
+   ```
 
  - Kafka messaging server:
    The best way to get started is to use the Docker image that already contains all the necessary bits for running Kafka locally.
