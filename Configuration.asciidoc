@@ -213,7 +213,7 @@ The event itself is in format of CloudEvent so can be easily consumed, it comes 
 
 ### Publishing events
 
-Events by default are only emitted when there is at least on published defined. There might be many event publishers that can be used to send/publish these events into different channels etc.
+Events by default are only emitted when there is at least one publisher configured. There might be many event publishers that can be used to send/publish these events into different channels etc.
 
 By default there are message based event publishers shipped with Kogito
 
