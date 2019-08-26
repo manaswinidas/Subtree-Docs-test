@@ -12,6 +12,8 @@ Overall goals include:
 
 It is also important to note that this service is not intended to be used as permanent storage or audit log information. Focus is to make business domain data easily accessible for processes that are currently in progress.
 
+![](https://github.com/kiegroup/kogito-runtimes/blob/master/docsimg/data-index-architecture.jpg)
+
 ## Technical Overview
 From a technical perspective, the Data Index is a Quarkus application based on VertX and reactive messaging that exposes a GraphQL endpoint, allowing client applications to easily access business domain-specific data as well as technical detailed information about running process instance.
 
