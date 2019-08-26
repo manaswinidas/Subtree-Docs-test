@@ -154,6 +154,46 @@ Assuming a Travels model is deployed
   }
 }
 ``` 
+#### Filtering
+Filtering the domain-specific cache is, at this stage, open to a simple string, which is based in Infinispan query API. Please note, that we do plan to replace this for a GraphQL typed search, similar to what is provided by the technical cache. This open search allows for some interesting searches such as:
+
+* List all Travels for travellers that first name starts with `ma`.
+```graphql
+{
+  Travels(query: "from org.acme.travels.travels.Travels t where t.traveller.firstName:'ma*'") {
+    flight {
+      flightNumber
+      arrival
+      departure
+    }
+    hotel {
+      name
+    }
+    traveller {
+      firstName
+    }
+    processInstances {
+      id
+      processId
+      rootProcessId
+      rootProcessInstanceId
+      parentProcessInstanceId
+    }
+  }
+}
+``` 
+* List the flight details related to a specific process instance.
+```graphql
+{
+  Travels(query: "from org.acme.travels.travels.Travels t where t.processInstances.id:'abb9f626-8a54-444d-943a-25b969a2cd1c'") {
+    flight {
+      flightNumber
+      arrival
+      departure
+    }
+  }
+}
+``` 
 
 ### Loading proto files from the file system
 To bootstrap the service using a set of proto files from a folder, simply pass the following property `kogito.protobuf.folder` and any .proto file contained in the folder will automatically be loaded when the application starts.
