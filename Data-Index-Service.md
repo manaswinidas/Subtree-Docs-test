@@ -63,6 +63,7 @@ You will need:
    ```
    docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=localhost --env ADVERTISED_PORT=9092 spotify/kafka
    ``` 
+   For a compreensive list of options for setting up the Data Index Kafka consumer please visit: [configuring-the-kafka-connector](https://quarkus.io/guides/kafka-guide#configuring-the-kafka-connector) and [Kafka consumer configuration](https://kafka.apache.org/documentation/#consumerconfigs)
    
 ## Running
 
