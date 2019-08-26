@@ -48,8 +48,7 @@ via the two caches, where users can query based on the technical aspects (Proces
 The Data Index Service is also a [Vert.X](https://vertx.io) based application for more details, visit https://quarkus.io/guides/using-vertx. An important aspect
 provided by Vert.X is the native integration with [Java GraphQL](https://www.graphql-java.com/) provided by the [vertx-web-graphql](https://vertx.io/docs/vertx-web-graphql/java/).
 
-Messaging integration is also provided by Quarkus using `quarkus-smallrye-reactive-messaging-kafka`. For more details and configution details, visit
-https://quarkus.io/guides/kafka-guide and https://smallrye.io/smallrye-reactive-messaging/.
+Messaging integration is also provided by Quarkus using `quarkus-smallrye-reactive-messaging-kafka`. For more details and configuration details, visit [smallrye-reactive-messaging](https://quarkus.io/guides/kafka-guide and https://smallrye.io/smallrye-reactive-messaging/).
 
 ## Prerequisites
 
@@ -59,7 +58,7 @@ You will need:
  Service will be available on port 11222. This should match the setting `quarkus.infinispan-client.server-list=localhost:11222` on `application.properties`.  
 
  - Kafka messaging server:
-   The best way to get started is to use the a Docker Image that already contains all the necessary bits for running Kafka locally.
+   The best way to get started is to use the Docker image that already contains all the necessary bits for running Kafka locally.
    For more details visit: https://hub.docker.com/r/spotify/kafka/ 
    ```
    docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=localhost --env ADVERTISED_PORT=9092 spotify/kafka
@@ -74,7 +73,7 @@ mvn clean compile quarkus:dev
 ```
 
 Once the service is up and running, it will start consuming messages from the  Kafka topic named: `kogito-processinstances-events`.
-For more details on how to enable a Kogito runtime to produce events, please visit: https://github.com/kiegroup/kogito-runtimes/wiki/Configuration#publishing-events
+For more details on how to enable a Kogito runtime to produce events, please visit [publishing-events](https://github.com/kiegroup/kogito-runtimes/wiki/Configuration#publishing-events).
 
 When running on dev mode, the [GraphiQL](https://github.com/graphql/graphiql) UI is available, on http://localhost:8180/, which allows
 exploring and querying the available data model.
@@ -131,9 +130,9 @@ Assuming a Travels model is deployed
 }
 ``` 
 
-### Loading proto files from file system
+### Loading proto files from the file system
 To bootstrap the service using a set of proto files from a folder, simply pass the following property `kogito.protobuf.folder` and any .proto file contained in the folder will automatically be loaded when the application starts.
-Yo can also setup the service to reload/load any changes to files during the service execution by setting `kogito.protobuf.watch=true`.
+You can also set up the service to reload/load any changes to files during the service execution by setting `kogito.protobuf.watch=true`.
 
 ```
 mvn clean compile quarkus:dev -Dkogito.protobuf.folder=/home/git/kogito-runtimes/data-index/data-index-service/src/test/resources -Dkogito.protobuf.watch=true
@@ -156,7 +155,7 @@ java -jar target/data-index-service-8.0.0-SNAPSHOT-runner.jar
 
 Infinispan embeds a Lucene engine in order to provide indexing of models in the cache. To be able to hint the engine about which attributes should be indexed,
 it needs to annotate the proto file attributes using Hibernate Search annotations  `@Indexed` and `@Field`.
-For more details, visit https://infinispan.org/docs/dev/user_guide/user_guide.html#indexing_of_protobuf_encoded_entries.  
+For more details, visit [indexing_of_protobuf_encoded_entries](https://infinispan.org/docs/dev/user_guide/user_guide.html#indexing_of_protobuf_encoded_entries).  
 
 Sample indexed model:
 ```
