@@ -101,6 +101,31 @@ Some examples:
 }
 ```  
 
+#### Filtering 
+The provided GraphQL schema also allows for further filtering of the results. A filter attribute is optional and allows multiple combinations. A few examples:
+
+```graphql
+{
+  ProcessInstances(filter: {state: ACTIVE, limit: 10, processId: "travels_sub"}) {
+    id
+    processId
+    state
+    variables
+  }
+}
+``` 
+
+```graphql
+{
+  ProcessInstances(filter: {id: ["abb9f626-8a54-444d-943a-25b969a2cd1c", "446fcdb8-aa79-4044-baf9-6c471e0fbe1b"]}) {
+    id
+    processId
+    state
+    variables
+  }
+}
+``` 
+
 ### Querying the domain cache
 Assuming a Travels model is deployed
 ```graphql
