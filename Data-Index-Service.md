@@ -78,8 +78,7 @@ mvn clean compile quarkus:dev
 Once the service is up and running, it will start consuming messages from the  Kafka topic named: `kogito-processinstances-events`.
 For more details on how to enable a Kogito runtime to produce events, please visit [publishing-events](https://github.com/kiegroup/kogito-runtimes/wiki/Configuration#publishing-events).
 
-When running on dev mode, the [GraphiQL](https://github.com/graphql/graphiql) UI is available, on http://localhost:8180/, which allows
-exploring and querying the available data model.
+When running on dev mode, the [GraphiQL](https://github.com/graphql/graphiql) UI is available, on http://localhost:8180/, which allows exploring and querying the available data model. Alternatively, it is also possible to use a GraphQL client API to communicate with the exposed endpoint at `http://localhost:8180/graphql`.
 
 In there you can explore the current types available using the Docs section on the top right and execute queries on the model.
 Some examples:
