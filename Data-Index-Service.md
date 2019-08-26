@@ -40,15 +40,15 @@ some process instance metadata, which allows correlating data between domain and
 Storage is provided by [Infinispan](https://infinispan.org/) and integrated using `quarkus-infinispan-client`. Communication between the Index Service and Infinispan is handled via [Protocol Buffers](https://developers.google.com/protocol-buffers/) which requires creating
 `.proto` files and marshallers to read and write bytes. For more information, visit the [Quarkus Infinispan Client Guide](https://quarkus.io/guides/infinispan-client-guide).
 
-In order to enable indexing of custom process models, the Data Index Service consumes proto files generated for a given process, see https://github.com/kiegroup/kogito-runtimes/wiki/Persistence#process-instance-variables.
+In order to enable indexing of custom process models, the Data Index Service consumes proto files generated for a given process, see [process-instance-variables](https://github.com/kiegroup/kogito-runtimes/wiki/Persistence#process-instance-variables).
 That can be added by simply making the proto files available in a folder for the service to read once starting.
-Once the proto model is parsed, a respective [GraphQL](https://graphql.org) type is generated to allow clients to query the information. Again, the process data is available
-via the two caches, where users can query based on the technical aspects (Process Instances) or domain specific (proto defined type).
+Once the Protocol Buffer model is parsed, a respective [GraphQL](https://graphql.org) type is generated to allow clients to query the information. Again, the process data is available
+via the two caches, where users can query based on the technical aspects (Process Instances) or domain-specific (proto defined type).
 
-The Data Index Service is also a [Vert.X](https://vertx.io) based application for more details, visit https://quarkus.io/guides/using-vertx. An important aspect
+The Data Index Service is also a [Vert.X](https://vertx.io) based application for more details, visit [using-vertx](https://quarkus.io/guides/using-vertx). An important aspect
 provided by Vert.X is the native integration with [Java GraphQL](https://www.graphql-java.com/) provided by the [vertx-web-graphql](https://vertx.io/docs/vertx-web-graphql/java/).
 
-Messaging integration is also provided by Quarkus using `quarkus-smallrye-reactive-messaging-kafka`. For more details and configuration details, visit [smallrye-reactive-messaging](https://quarkus.io/guides/kafka-guide and https://smallrye.io/smallrye-reactive-messaging/).
+Messaging integration is also provided by Quarkus using `quarkus-smallrye-reactive-messaging-kafka`. For more details and configuration details, visit [kafka-guide](https://quarkus.io/guides/kafka-guide) and [smallrye-reactive-messaging](https://smallrye.io/smallrye-reactive-messaging/).
 
 ## Prerequisites
 
