@@ -16,12 +16,7 @@
 <li><a href="https://github.com/kiegroup/kogito-runtimes/wiki/Messaging">Messaging</a>  </li>
       </ul>
      </li>
-     <li>Data Index
-     <ul>
      <li><a href="https://github.com/kiegroup/kogito-runtimes/wiki/Data-Index-Service">Data Index Service</a></li>
-<li><a href="https://github.com/kiegroup/kogito-runtimes/wiki/Data-Index-Service---Developer">Data Index Service - Developer</a></li>
-</ul>
-     </li>
     </ul>
   </li>
 </ul>
