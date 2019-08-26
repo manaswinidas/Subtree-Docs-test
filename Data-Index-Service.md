@@ -83,7 +83,7 @@ In there you can explore the current types available using the Docs section on t
 Some examples:
 
 ### Querying the technical cache
-```json
+```graphql
 {
   ProcessInstances {
     id
@@ -104,7 +104,7 @@ Some examples:
 
 ### Querying the domain cache
 Assuming a Travels model is deployed
-```json
+```graphql
 {
   Travels {
     visaApplication {
