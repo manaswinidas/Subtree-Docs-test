@@ -4,10 +4,10 @@
 
 ### Main themes of the release 
 
-* message start and end events that allow smooth integration with Apache Kafka and possibly other messaging
-* multi-instance characteristic for service nodes and reusable subprocesses
-* Unit of Work support to allow finer control of execution and grouping related operations
-* refactor service discovery when running in Kubernetes based environments
+* [x] message start and end events that allow smooth integration with Apache Kafka and possibly other messaging
+* [x] multi-instance characteristic for service nodes and reusable subprocesses
+* [x] Unit of Work support to allow finer control of execution and grouping related operations
+* [x] refactor service discovery when running in Kubernetes based environments
 
 # 0.3.0
 
@@ -15,17 +15,17 @@
 
 ### Main themes of the release 
 
-* runtime persistence based on Infinispan
-* data index service initial implementation to enable management and human task-centric use cases
-* events for runtime based on CloudEvents - this is integration between runtime services and data index service
-* enable domain-specific metrics - mainly data-driven to be available for dashboards
-* new version of the operator with a new redesign and smooth integration with a service discovery engine
-* introduce the kogito cli for operator
-* open tracing for any service interaction from within a process or decision
-* initial Data Source and Data Stream implementation
-* Rule Unit support with concurrent Rule Unit prototype
-* Rule Unit automated endpoint generation with query response
-* automated POJO REST endpoint generation
+* [x] runtime persistence based on Infinispan
+* [x] data index service initial implementation to enable management and human task-centric use cases
+* [x] events for runtime based on CloudEvents - this is integration between runtime services and data index service
+* [x] enable domain-specific metrics - mainly data-driven to be available for dashboards
+* [x] new version of the operator with a new redesign and smooth integration with a service discovery engine
+* [x] introduce the kogito cli for operator
+* [ ] open tracing for any service interaction from within a process or decision
+* [x] initial Data Source and Data Stream implementation
+* [x] Rule Unit support with concurrent Rule Unit prototype
+* [x] Rule Unit automated endpoint generation with query response
+* [x] automated POJO REST endpoint generation
 
 
 # 0.4.0
