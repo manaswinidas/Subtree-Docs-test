@@ -1,0 +1,126 @@
+Developer workflow in Kogito defines the most basic and common steps developers use to become effective. It should not enforce any additional practices and tries to stay as close to industry standard for app development. 
+
+Although depending on selected technology stack (Quarkus or SpringBoot) there might be some differences.
+
+# Single IDE
+
+The most important aspect is to let developers stay in single IDE to do their job, that means they should not be forced to move between apps to create different type of assets. With that said Kogito targets VSCode as the IDE and would provide editors and extension to ease the developer's life by providing
+
+* process editor to define workflows
+* decision editor to define decision model, rules and decision tables
+* take advantage of Java editor/language protocol in VSCode to allow 
+** define data mode
+** create services
+** REST endpoints
+** use java auto completion/syntax check while working in decisions and processes with code e.g. script tasks, gateway conditions etc
+* take advantage of JS and HTML editors to be able to build UI components 
+* take advantage of the debugging capabilities of the VSCode to look into running application
+
+Simply said, IDE should be the only needed tool to work on Kogito enabled apps and by that be integrated with any other framework used.
+
+# Test driven
+
+Developers should be equipped with all needed tools to build Kogito enabled apps with test driven approach. That is to be able to build tests for the business assets like processes, rules and decisions in their IDE and to allow them to execute seamlessly 
+
+## Building tests for processes with QuarkusTest
+
+Quarkus provides very convenient test support that Kogito integrates with, to create a test code process one would just use injection of the generated process and start instance of it
+
+[source, java]
+----
+@QuarkusTest
+public class TravelTest {
+
+	@Inject
+	@Named("travels") // this is the process id from your process definition
+	Process<? extends Model> travelsProcess;
+
+        @Test
+	public void testTravelNoVisaRequired() {
+
+            Model m = travelsProcess.createModel();
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("traveller", new Traveller("John", "Doe", "john.doe@example.com", "American", new Address("main street", "Boston", "10005", "US")));
+            parameters.put("trip", new Trip("New York", "US", new Date(), new Date()));
+
+            m.fromMap(parameters);
+        
+            ProcessInstance<?> processInstance = travelsProcess.createInstance(m);
+            processInstance.start();
+	    ....
+
+    }
+}
+----
+
+Similar one would test the rules
+
+[source, java]
+----
+@QuarkusTest
+public class VisaRulesTest {
+
+
+	@Inject
+	KieRuntimeBuilder ruleRuntime;
+
+        @Test
+	public void testVisaNotRequiredRule() {
+            Traveller traveller = new Traveller("John", "Doe", "john.doe@example.com", "American", new Address("main street", "Boston", "10005", "US"));
+            Trip trip = new Trip("New York", "US", new Date(), new Date());
+
+            KieSession ksession = ruleRuntime.newKieSession();
+            ((InternalAgenda) ksession.getAgenda()).activateRuleFlowGroup("visas");
+            ksession.insert(trip);
+            ksession.insert(traveller);
+            ksession.fireAllRules();
+        
+            ksession.dispose();
+        
+            assertFalse(trip.isVisaRequired());                
+	}
+}
+----
+
+Tests should be written 
+
+* as unit tests that test individual process or decision
+* as integration tests that test set of processes and decision working together
+* API tests that test the REST api of the application, this type of tests can also be applied to native images
+
+# Development mode
+
+Development mode should allow fast feedback loop from code changes to running system. This applies to both local development and on OpenShift/Kubernetes. Kogito utilises development tools from the runtime frameworks like Quarkus or SpringBoot.
+
+There should be all integrated with the regular practices so the changes can be quickly and reliably reflected on running application/service.
+
+Quarkus Kogito extension is already supporting dev mode to generate code based on changed files and hot reload it on running service instance. This makes the work way more efficient and does not require extra build cycles to make changes available.
+
+# IDE extension
+
+IDE extension for Kogito specific features should be provided to developers to allow them to work with Kogito in the most effective way. Following is a list of features that the extension should provide
+
+* creation of new projects powered by Kogito - either quarkus or spring boot
+* bootstrap project with predefined templates for business automation
+** approval workflow
+** service invocation/orchestration
+** etc
+* adding and configuring service tasks (work items)
+* provisioning local instance of 
+** data index service
+** timer service
+** task inbox
+** management console
+* debugger for decisions and processes
+
+# Deployment to cloud
+
+Deployment of the build application to a cloud (based on OpenShift/Kubernetes) should be very smooth and based on Kogito Operator and its CLI which can also be integrated with the IDE extension.
+
+Deployment should allow to
+
+* deploy in development mode enabling remote dev mode
+* deploy in production mode - jvm
+* deploy in production mode - native image
+
+this should also integrate with any CI/CD configured for the target cloud environment.
