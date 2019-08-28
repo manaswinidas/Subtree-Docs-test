@@ -4,9 +4,11 @@ This is a test repository to check the syncing of GitHub wiki and GitBook conten
 
 ## Steps to reproduce 
 
-Add the subtree remote using:`git remote add -f kogito-wiki https://github.com/kiegroup/kogito-runtimes.wiki.git`
-Add the subtree using(creates a commit automatically):`git subtree add --prefix=kogito-wiki https://github.com/kiegroup/kogito-runtimes.wiki.git master`
-Pull the latest updates from subtree:`git subtree pull-all`
+Add the subtree remote using: `git remote add -f kogito-wiki https://github.com/kiegroup/kogito-runtimes.wiki.git`
+
+Add the subtree using(creates a commit automatically): `git subtree add --prefix=kogito-wiki https://github.com/kiegroup/kogito-runtimes.wiki.git master`
+
+Pull the latest updates from subtree: `git subtree pull-all`
 
 ## Install gitbook dependencies
 
