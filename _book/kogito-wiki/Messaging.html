@@ -1,0 +1,592 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Messaging · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Data-Index-Service.html" />
+    
+    
+    <link rel="prev" href="Persistence.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Home.html">
+            
+                <a href="Home.html">
+            
+                    
+                    Home
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Roadmap.html">
+            
+                <a href="Roadmap.html">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" >
+            
+                <span>
+            
+                    
+                    Usage workflows
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="Developer-workflow.html">
+            
+                <a href="Developer-workflow.html">
+            
+                    
+                    Developer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="Administrator-workflow.html">
+            
+                <a href="Administrator-workflow.html">
+            
+                    
+                    Administrator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" >
+            
+                <span>
+            
+                    
+                    Processes
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="What's-supported-for-process-design?.html">
+            
+                <a href="What's-supported-for-process-design?.html">
+            
+                    
+                    Supported constructs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="Persistence.html">
+            
+                <a href="Persistence.html">
+            
+                    
+                    Persistence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.3.3" data-path="Messaging.html">
+            
+                <a href="Messaging.html">
+            
+                    
+                    Messaging
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="Data-Index-Service.html">
+            
+                <a href="Data-Index-Service.html">
+            
+                    
+                    Data Index Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Messaging</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div class="paragraph">
+<p>Messaging that can be both input and output of the process execution.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://github.com/mswiderski/kogito-quickstarts/blob/master/kogito-kafka-quickstart-quarkus/docs/images/process.png" alt="Message based process image">
+</div>
+</div>
+<div class="paragraph">
+<p>This is realised by message start and end events that require</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>message name which maps to the actual channel that delivers messages</p>
+</li>
+<li>
+<p>message payload which maps to a process instance variable</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://github.com/mswiderski/kogito-quickstarts/blob/master/kogito-kafka-quickstart-quarkus/docs/images/message-definition.png" alt="Message definition">
+</div>
+</div>
+<div class="paragraph">
+<p>Configuration of the marshalling is dependant on the actual messaging solution being used.</p>
+</div>
+<h1 id="_quarkus" class="sect0">Quarkus</h1>
+<div class="sect1">
+<h2 id="_apache_kafka_configuration">Apache Kafka Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/mswiderski/kogito-quickstarts/tree/master/kogito-kafka-quickstart-quarkus" target="_blank">Complete project</a> can be used as source reference</p>
+</div>
+<div class="sect2">
+<h3 id="_install_and_configure_apache_kafka">Install and configure Apache Kafka</h3>
+<div class="paragraph">
+<p>Install Apache Kafka in the preferred way and create new topics needed</p>
+</div>
+<div class="sect3">
+<h4 id="_add_dependency">Add dependency</h4>
+<div class="paragraph">
+<p>Add following into the pom.xml of the application.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.quarkus<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>quarkus-smallrye-reactive-messaging-kafka<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.quarkus<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>quarkus-kafka-client<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configure_messaging_channel">Configure messaging channel</h4>
+<div class="paragraph">
+<p>Edit <code>application.properties</code> file located under <code>src/main/resources</code> and add following entries</p>
+</div>
+<div class="paragraph">
+<p>Add following for message start event</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-plain" data-lang="plain">mp.messaging.incoming.travellers.connector=smallrye-kafka
+mp.messaging.incoming.travellers.topic=travellers
+mp.messaging.incoming.travellers.value.deserializer=org.acme.travel.json.TravellerJsonbDeserializer</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>.travellers.</code> is the name that matches the message name of the message start event.</p>
+</div>
+<div class="paragraph">
+<p>Deserialization depends on type of data to be received, it can be based on JSONB that comes with Quarkus Kafka-client extension or it can be any of the standard types Apache Kafka comes with.</p>
+</div>
+<div class="paragraph">
+<p>Add following for message end event</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-plain" data-lang="plain">mp.messaging.outgoing.processedtravellers.connector=smallrye-kafka
+mp.messaging.outgoing.processedtravellers.topic=processedtravellers
+mp.messaging.outgoing.processedtravellers.value.serializer=org.acme.travel.json.TravellerJsonbSerializer</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <code>.processedtravellers.</code> is the name that matches the message name of the message end event.</p>
+</div>
+<div class="paragraph">
+<p>Serialization depends on type of data to be received, it can be based on JSONB that comes with Quarkus Kafka-client extension or it can be any of the standard types Apache Kafka comes with.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h1 id="_springboot" class="sect0">SpringBoot</h1>
+<div class="sect1">
+<h2 id="_apache_kafka_configuration_2">Apache Kafka Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/mswiderski/kogito-quickstarts/tree/master/kogito-kafka-quickstart-springboot" target="_blank">Complete project</a> can be used as source reference</p>
+</div>
+<div class="sect2">
+<h3 id="_install_and_configure_apache_kafka_2">Install and configure Apache Kafka</h3>
+<div class="paragraph">
+<p>Install Apache Kafka in the preferred way and create new topics needed.</p>
+</div>
+<div class="sect3">
+<h4 id="_add_dependency_2">Add dependency</h4>
+<div class="paragraph">
+<p>Add following into the pom.xml of the application.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.kafka<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-kafka<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.fasterxml.jackson.core<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jackson-databind<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_configure_messaging_channel_2">Configure messaging channel</h4>
+<div class="paragraph">
+<p>Edit <code>application.properties</code> file located under <code>src/main/resources</code> and add following entries</p>
+</div>
+<div class="paragraph">
+<p>Add following for message start event</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-plain" data-lang="plain">kafka.bootstrapAddress=localhost:9092</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_beans_for_incoming_messages">Create beans for incoming messages</h4>
+<div class="paragraph">
+<p>Following beans should be created to support incoming messages from Kafka to start process instances</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java"><span class="hljs-meta">@EnableKafka</span>
+<span class="hljs-meta">@Configuration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KafkaConsumerConfig</span> </span>{
+
+    <span class="hljs-meta">@Value</span>(value = <span class="hljs-string">&quot;${kafka.bootstrapAddress}&quot;</span>)
+    <span class="hljs-keyword">private</span> String bootstrapAddress;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ConsumerFactory&lt;String, Traveller&gt; <span class="hljs-title">consumerFactory</span><span class="hljs-params">()</span> </span>{
+        Map&lt;String, Object&gt; props = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, <span class="hljs-string">&quot;travellers-group&quot;</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DefaultKafkaConsumerFactory&lt;&gt;(props, <span class="hljs-keyword">new</span> StringDeserializer(), <span class="hljs-keyword">new</span> JsonDeserializer&lt;&gt;(Traveller.class));
+    }
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ConcurrentKafkaListenerContainerFactory&lt;String, Traveller&gt; <span class="hljs-title">kafkaListenerContainerFactory</span><span class="hljs-params">()</span> </span>{
+        ConcurrentKafkaListenerContainerFactory&lt;String, Traveller&gt; factory = <span class="hljs-keyword">new</span> ConcurrentKafkaListenerContainerFactory&lt;&gt;();
+        factory.setConsumerFactory(consumerFactory());
+        <span class="hljs-keyword">return</span> factory;
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_beans_for_outgoing_messages">Create beans for outgoing messages</h4>
+<div class="paragraph">
+<p>Following beans should be created to support incoming messages from Kafka to start process instances</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java"><span class="hljs-meta">@Configuration</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">KafkaProducerConfig</span> </span>{
+
+    <span class="hljs-meta">@Value</span>(value = <span class="hljs-string">&quot;${kafka.bootstrapAddress}&quot;</span>)
+    <span class="hljs-keyword">private</span> String bootstrapAddress;
+
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ProducerFactory&lt;String, Traveller&gt; <span class="hljs-title">producerFactory</span><span class="hljs-params">()</span> </span>{
+        Map&lt;String, Object&gt; configProps = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+        configProps.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, <span class="hljs-keyword">false</span>);
+        configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
+        configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DefaultKafkaProducerFactory&lt;&gt;(configProps);
+    }
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> KafkaTemplate&lt;String, Traveller&gt; <span class="hljs-title">kafkaTemplate</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> KafkaTemplate&lt;&gt;(producerFactory());
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Persistence.html" class="navigation navigation-prev " aria-label="Previous page: Persistence">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Data-Index-Service.html" class="navigation navigation-next " aria-label="Next page: Data Index Service">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Messaging","level":"1.2.3.3","depth":3,"next":{"title":"Data Index Service","level":"1.2.4","depth":2,"path":"kogito-wiki/Data-Index-Service.md","ref":"kogito-wiki/Data-Index-Service.md","articles":[]},"previous":{"title":"Persistence","level":"1.2.3.2","depth":3,"path":"kogito-wiki/Persistence.asciidoc","ref":"kogito-wiki/Persistence.asciidoc","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kogito-wiki/Messaging.asciidoc","mtime":"2019-08-28T13:01:13.867Z","type":"asciidoc"},"gitbook":{"version":"3.2.3","time":"2019-08-28T13:15:57.942Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

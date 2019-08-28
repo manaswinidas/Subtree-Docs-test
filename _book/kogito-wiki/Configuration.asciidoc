@@ -1,0 +1,322 @@
+# Configuration of the runtime
+
+There are several configuration that can be needed when implementing Kogito enabled applications. Some (but not all) are
+
+* registering work item handlers
+* registering event listeners
+* enabling metrics
+* enabling persistence
+* enabling events produced by runtimes
+
+These various items might require dependencies setup, code and configuration in the application.properties file.
+
+## Registering work item handlers
+
+To be able to use custom service tasks a work item handlers must be registered. Once the work item handler is implemented to can be either packaged in the application itself or as dependency of the application.
+
+`WorkItemHandlerConfig` class should be created to provide custom work item handlers. It must implement `org.kie.kogito.process.WorkItemHandlerConfig` although recommended is to always extend the default implementation (`org.kie.kogito.process.impl.DefaultWorkItemHandlerConfig`) to benefit from the out of the box provided handlers as well.
+
+[source, java]
+----
+@ApplicationScoped
+public class CustomWorkItemHandlerConfig extends DefaultWorkItemHandlerConfig {{
+    register("MyServiceTask", new MyServiceWorkItemHandler());
+}}
+----
+
+NOTE: These classes are meant to be injectable so ensure you properly annotate the class (`@ApplicationScoped`/`@Component`) so they can be found and registered.
+
+You can also take advantage of life cycle method like `@PostConstruct` and `@PreDestroy` to manage your handlers.
+
+## Registering event listeners
+
+Event listeners are registered in similar way as work item handlers. Though these are separated into rule or process related event listeners and as such are implementing different interfaces.
+
+* `org.kie.kogito.process.ProcessEventListenerConfig`
+* `org.kie.kogito.rules.RuleEventListenerConfig`
+
+same as with work item handlers it's recommended to always extend the default implementation of the config class
+
+* `org.kie.kogito.process.impl.DefaultProcessEventListenerConfig`
+* `org.drools.core.config.DefaultRuleEventListenerConfig`
+
+[source, java]
+----
+@ApplicationScoped
+public class ProcessEventListenerConfig extends DefaultProcessEventListenerConfig {
+   
+    public ProcessEventListenerConfig() {
+        super(new CustomProcessEventListener());
+    }
+}
+----
+
+[source, java]
+----
+@ApplicationScoped
+public class RuleEventListenerConfig extends DefaultRuleEventListenerConfig {
+
+    public RuleEventListenerConfig() {
+        super(new CustomRuleEventListener());
+    }
+}
+----
+
+NOTE: These classes are meant to be injectable so ensure you properly annotate the class (`@ApplicationScoped`/`@Component`) so they can be found and registered.
+
+## Enabling metrics
+
+Kogito comes with base coverage for processes and rules evaluation. These can be directly exposed via HTTP endpoint. It is based on Prometheus and the content it serves is in that format as well so can be directly consumed by Prometheus server.
+
+### Add dependencies
+
+Add following dependency to your project pom.xml
+
+[source, xml]
+----
+<dependency>
+  <groupId>org.kie.kogito</groupId>
+  <artifactId>monitoring-prometheus-addon</artifactId>
+  <version>${kogito.version}</version>
+</dependency>
+----
+
+### Register event listeners
+
+Depending on capabilities of Kogito used in the service you might register either or both of the following listeners
+
+* `org.kie.addons.monitoring.process.PrometheusProcessEventListener`
+* `org.kie.addons.monitoring.rule.PrometheusMetricsDroolsListener`
+
+To enable process related metrics create ProcessEventListenerConfig class or add the Prometheus listener (`org.kie.addons.monitoring.process.PrometheusProcessEventListener`) to already existing config class.
+
+[source, java]
+----
+@ApplicationScoped
+public class ProcessEventListenerConfig extends DefaultProcessEventListenerConfig {
+   
+    public ProcessEventListenerConfig() {
+        super(new PrometheusProcessEventListener("acme-travels"));
+    }
+}
+----
+
+
+To enable rule related metrics create RuleEventListenerConfig class or add the Prometheus listener (`org.kie.addons.monitoring.rule.PrometheusMetricsDroolsListener`) to already existing config class.
+
+[source, java]
+----
+@ApplicationScoped
+public class RuleEventListenerConfig extends DefaultRuleEventListenerConfig {
+
+    public RuleEventListenerConfig() {
+        super(new PrometheusMetricsDroolsListener("acme-travels"));
+    }
+}
+----
+
+NOTE: There is single argument for both classes and that is identifier that describes the data coming from the runtimes. It can be used to group the metrics later on when visualising them.
+
+## Enabling persistence
+
+See https://github.com/kiegroup/kogito-runtimes/wiki/Persistence[Persistence section] to learn more about persistence and how to enable it.
+
+
+## Enable runtime events
+
+Runtimes can produce events based on processed data. Currently this mainly applies to process execution but will most likely be expanded to cover also decisions and rules.
+
+### Process runtime events
+
+Runtime engine can emit events based on the execution context of given request (aka unit of work). The main aim for these events is to notify 3rd parties about changes to the process instance and its data. To avoid too many events being sent and to optimise both producer and consumer side there will be only one event per process instance emitted. 
+
+That event will consists of relevant information such as
+
+* process instance metadata e.g. process id, process instance id, process instance state, etc
+* node instances executed, list of all node instances that have been triggered/left during the execution
+* variables - current state of variables after the execution
+
+These events will provide complete view over the process instances being executed without need to respond to individual events that can be consumed via ProcessEventListener.
+
+IMPORTANT: these events are produced only when the execution finished successfully, meaning without any errors during the course of execution.
+
+In case there are multiple process instances executed within single request/unit of work each process instance will be given a dedicated event.
+
+[source, json]
+----
+{
+  "specversion": "0.3",
+  "id": "f52af50c-4fe2-4581-9184-7ad48137fb3f",
+  "source": null,
+  "type": "ProcessInstanceEvent",
+  "time": "2019-08-05T17:47:49.019494+02:00[Europe/Warsaw]",
+  "data": {
+    "id": "c1aced49-399b-4938-9071-b2ffa3fb7045",
+    "parentInstanceId": null,
+    "rootInstanceId": null,
+    "processId": "deals",
+    "processName": "SubmitDeal",
+    "startDate": 1565020069015,
+    "endDate": null,
+    "state": 1,
+    "nodeInstances": [
+      {
+        "id": "a8fe24c4-27a5-4869-85df-16e9f170f2c4",
+        "nodeId": "2",
+        "nodeDefinitionId": "CallActivity_1",
+        "nodeName": "Call a deal",
+        "nodeType": "SubProcessNode",
+        "triggerTime": 1565020069015,
+        "leaveTime": null
+      },
+      {
+        "id": "7a3bf1b1-b167-4928-969d-20bddf16c87a",
+        "nodeId": "1",
+        "nodeDefinitionId": "StartEvent_1",
+        "nodeName": "StartProcess",
+        "nodeType": "StartNode",
+        "triggerTime": 1565020069015,
+        "leaveTime": 1565020069015
+      }
+    ],
+    "variables": {
+      "name": "my fancy deal",
+      "traveller": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "jon.doe@example.com",
+        "nationality": "American",
+        "address": {
+          "street": "main street",
+          "city": "Boston",
+          "zipCode": "10005",
+          "country": "US"
+        }
+      }
+    }
+  },
+  "kogitoProcessinstanceId": "c1aced49-399b-4938-9071-b2ffa3fb7045",
+  "kogitoParentProcessinstanceId": null,
+  "kogitoRootProcessinstanceId": null,
+  "kogitoProcessId": "deals",
+  "kogitoProcessinstanceState": "1"
+}
+----
+
+The event itself is in format of CloudEvent so can be easily consumed, it comes with few extensions to allow event routing based on the event metadata without looking into the body of the event
+
+* kogitoProcessinstanceId
+* kogitoParentProcessinstanceId
+* kogitoRootProcessinstanceId
+* kogitoProcessId
+* kogitoProcessinstanceState
+
+### Publishing events
+
+Events by default are only emitted when there is at least one publisher configured. There might be many event publishers that can be used to send/publish these events into different channels etc.
+
+By default there are message based event publishers shipped with Kogito
+
+* Reactive message based that allows to send events to Kafka, AMQP, MQTT, Camel and this is used for Quarkus based runtimes
+* Spring Kafka based that allows to send events to Kafka and is dedicated to runtimes based on Spring Boot
+
+Additional event producers can be developed by implementing `org.kie.kogito.event.EventPublisher` that needs to be annotated with respective annotations for bean discovery.
+
+### Configure event publisher for Quarkus based runtime
+
+#### Install and configure Apache Kafka
+
+Install Apache Kafka in the preferred way and create new topic named `kogito-processinstances-events`
+
+#### Add dependency
+
+Add following into the pom.xml of the application.
+
+[source, xml]
+----
+<dependency>
+  <groupId>io.quarkus</groupId>
+  <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.kie.kogito</groupId>
+  <artifactId>kogito-events-reactive-messaging-addon</artifactId>
+  <version>${kogito.version}</version>
+</dependency>
+----
+
+#### Configure messaging channel
+
+Edit `application.properties` file located under `src/main/resources` and add following entries
+
+[source, plain]
+----
+mp.messaging.outgoing.kogito-processinstances-events.connector=smallrye-kafka
+mp.messaging.outgoing.kogito-processinstances-events.topic=kogito-processinstances-events
+mp.messaging.outgoing.kogito-processinstances-events.value.serializer=org.apache.kafka.common.serialization.StringSerializer
+----
+
+Start the application and on each request (that actually modifies the state of a process instance) you should see new messages to show up on the `kogito-processinstances-events` topic.
+
+### Configure event publisher for SprintBoot based runtime
+
+#### Install and configure Apache Kafka
+
+Install Apache Kafka in the preferred way and create new topic named `kogito-processinstances-events`
+
+#### Add dependency
+
+Add following into the pom.xml of the application.
+
+[source, xml]
+----
+<dependency>
+  <groupId>org.springframework.kafka</groupId>
+  <artifactId>spring-kafka</artifactId>
+</dependency>
+<dependency>
+  <groupId>org.kie.kogito</groupId>
+  <artifactId>kogito-events-spring-boot-addon</artifactId>
+  <version>${kogito.version}</version>
+</dependency>
+----
+
+#### Configure messaging channel
+
+Edit `application.properties` file located under `src/main/resources` and add following entries
+
+[source, plain]
+----
+kafka.bootstrapAddress=localhost:9092
+----
+
+### Produce Kafka related beans
+
+[source, java]
+----
+@Configuration
+public class KafkaProducerConfig {
+
+    @Value(value = "${kafka.bootstrapAddress}")
+    private String bootstrapAddress;
+
+    
+    @Bean
+    public ProducerFactory<String, String> producerFactory() {
+        Map<String, Object> configProps = new HashMap<>();
+        configProps.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, false);
+        configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);        
+        configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        return new DefaultKafkaProducerFactory<>(configProps);
+    }
+    
+    @Bean
+    public KafkaTemplate<String, String> kafkaTemplate() {
+        return new KafkaTemplate<>(producerFactory());
+    }
+    
+}
+----
+
+Start the application and on each request (that actually modifies the state of a process instance) you should see new messages to show up on the `kogito-processinstances-events` topic.

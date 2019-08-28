@@ -1,0 +1,569 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Data Index Service · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="Messaging.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Home.html">
+            
+                <a href="Home.html">
+            
+                    
+                    Home
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Roadmap.html">
+            
+                <a href="Roadmap.html">
+            
+                    
+                    Roadmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" >
+            
+                <span>
+            
+                    
+                    Usage workflows
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.2.1" data-path="Developer-workflow.html">
+            
+                <a href="Developer-workflow.html">
+            
+                    
+                    Developer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2.2" data-path="Administrator-workflow.html">
+            
+                <a href="Administrator-workflow.html">
+            
+                    
+                    Administrator
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" >
+            
+                <span>
+            
+                    
+                    Processes
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.3.1" data-path="What's-supported-for-process-design?.html">
+            
+                <a href="What's-supported-for-process-design?.html">
+            
+                    
+                    Supported constructs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.2" data-path="Persistence.html">
+            
+                <a href="Persistence.html">
+            
+                    
+                    Persistence
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3.3" data-path="Messaging.html">
+            
+                <a href="Messaging.html">
+            
+                    
+                    Messaging
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.4" data-path="Data-Index-Service.html">
+            
+                <a href="Data-Index-Service.html">
+            
+                    
+                    Data Index Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Data Index Service</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="kogito-data-index-service">Kogito Data Index Service</h1>
+<p>This service aims for capturing and indexing data produced by one more Kogito runtime services.</p>
+<p>Overall goals include:</p>
+<ul>
+<li>Focus on domain data ( Orders, Travel, etc ) </li>
+<li>Flexible data structure</li>
+<li>Infinispan as first-class persistence service</li>
+<li>Distributable and cloud-ready</li>
+<li>Messaging based communication with Kogito runtime ( Kafka - Cloud Events )</li>
+<li>Powerful querying API using GraphQL</li>
+</ul>
+<p>It is also important to note that this service is not intended to be used as permanent storage or audit log information. Focus is to make business domain data easily accessible for processes that are currently in progress.</p>
+<p><img src="https://github.com/kiegroup/kogito-runtimes/blob/master/docsimg/data-index-architecture.jpg" alt=""></p>
+<h2 id="technical-overview">Technical Overview</h2>
+<p>From a technical perspective, the Data Index is a Quarkus application based on VertX and reactive messaging that exposes a GraphQL endpoint, allowing client applications to easily access business domain-specific data as well as technical detailed information about running process instance.</p>
+<p>In its current version, it uses Kakfa messaging to consume <a href="https://cloudevents.io" target="_blank">CloudEvents</a> based messages from Kogito runtimes, process and index the information for later consumption via GraphQL queries.
+These events contain information about units of work executed for a process. Visit <a href="https://github.com/kiegroup/kogito-runtimes/wiki/Configuration#process-runtime-events" target="_blank">process-runtime-events</a> for more details about the payload of the messages.
+This data is then parsed and pushed into different Infinispan caches.
+These caches are structured as follows:</p>
+<ul>
+<li>Domain cache: This cache is a generic cache, one per process id, where the process instance variables are pushed as the root content. This cache also includes
+some process instance metadata, which allows correlating data between domain and process instances. Data is transferred as JSON format to Infinispan server as a concrete Java type is not available. </li>
+<li>Process instance cache: Each process instance is pushed here containing all information, not only metadata, that includes extra information such as nodes executed.</li>
+</ul>
+<p>Storage is provided by <a href="https://infinispan.org/" target="_blank">Infinispan</a> which enables a cloud-ready and scalable persistence, as well as <a href="https://lucene.apache.org/" target="_blank">Lucene</a> based indexing. Communication between the Index Service and Infinispan is handled via <a href="https://developers.google.com/protocol-buffers/" target="_blank">Protocol Buffers</a>.</p>
+<p>Once the data is indexed and stored into the cache, the Data Index service inspects the process model in order to update the <a href="https://graphql.org" target="_blank">GraphQL</a> schema, allowing a type-checked query system for consumer clients.</p>
+<h1 id="instructions-for-developers">Instructions for developers</h1>
+<p>Data Index service is a Quarkus based application that aims to consume <a href="https://cloudevents.io" target="_blank">CloudEvents</a> based messages from Kogito runtimes, process and index the information for later consumption via GraphQL queries.
+These events contain information about units of work executed for one or multiple processes. Visit <a href="https://github.com/kiegroup/kogito-runtimes/wiki/Configuration#process-runtime-events" target="_blank">process-runtime-events</a> for more details about the payload of the messages.
+This data is then parsed and pushed into different Infinispan caches.
+These caches are structured as follows:</p>
+<ul>
+<li>Domain cache: This cache process type specific cache, one per process id, where the process instance variables are pushed as the root content. This cache also includes
+some process instance metadata, which allows correlating data between domain and process instances. Data is transferred as JSON format to Infinispan server as a concrete Java type is not available. </li>
+<li>Process instance cache: Each process instance is pushed here containing all information, not only metadata, that includes extra information such as nodes executed.</li>
+</ul>
+<p>Storage is provided by <a href="https://infinispan.org/" target="_blank">Infinispan</a> and integrated using <code>quarkus-infinispan-client</code>. Communication between the Index Service and Infinispan is handled via <a href="https://developers.google.com/protocol-buffers/" target="_blank">Protocol Buffers</a> which requires creating
+<code>.proto</code> files and marshallers to read and write bytes. For more information, visit the <a href="https://quarkus.io/guides/infinispan-client-guide" target="_blank">Quarkus Infinispan Client Guide</a>.</p>
+<p>In order to enable indexing of custom process models, the Data Index Service consumes proto files generated for a given process, see <a href="https://github.com/kiegroup/kogito-runtimes/wiki/Persistence#process-instance-variables" target="_blank">process-instance-variables</a>.
+That can be added by simply making the proto files available in a folder for the service to read once starting.
+Once the Protocol Buffer model is parsed, a respective <a href="https://graphql.org" target="_blank">GraphQL</a> type is generated to allow clients to query the information. Again, the process data is available
+via the two caches, where users can query based on the technical aspects (Process Instances) or domain-specific (proto defined type).</p>
+<p>The Data Index Service is also a <a href="https://vertx.io" target="_blank">Vert.X</a> based application for more details, visit <a href="https://quarkus.io/guides/using-vertx" target="_blank">using-vertx</a>. An important aspect
+provided by Vert.X is the native integration with <a href="https://www.graphql-java.com/" target="_blank">Java GraphQL</a> provided by the <a href="https://vertx.io/docs/vertx-web-graphql/java/" target="_blank">vertx-web-graphql</a>.</p>
+<p>Messaging integration is also provided by Quarkus using <code>quarkus-smallrye-reactive-messaging-kafka</code>. For more details and configuration details, visit <a href="https://quarkus.io/guides/kafka-guide" target="_blank">kafka-guide</a> and <a href="https://smallrye.io/smallrye-reactive-messaging/" target="_blank">smallrye-reactive-messaging</a>.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>You will need:</p>
+<ul>
+<li><p>Infinispan server:
+Download and run <a href="https://downloads.jboss.org/infinispan/10.0.0.Beta4/infinispan-server-10.0.0.Beta4.zip" target="_blank">https://downloads.jboss.org/infinispan/10.0.0.Beta4/infinispan-server-10.0.0.Beta4.zip</a>.
+Service will be available on port 11222. This should match the setting <code>quarkus.infinispan-client.server-list=localhost:11222</code> on <code>application.properties</code>.
+To enable our simplified demo setup, go to /server/conf/infinispan.xml and remove the security domain from the endpoints definition:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">endpoints</span> <span class="hljs-attr">socket-binding</span>=<span class="hljs-string">&quot;default&quot;</span>&gt;</span>
+</code></pre>
+</li>
+<li><p>Kafka messaging server:
+The best way to get started is to use the Docker image that already contains all the necessary bits for running Kafka locally.
+For more details visit: <a href="https://hub.docker.com/r/spotify/kafka/" target="_blank">https://hub.docker.com/r/spotify/kafka/</a> </p>
+<pre><code>docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=localhost --env ADVERTISED_PORT=9092 spotify/kafka
+</code></pre><p>For a compreensive list of options for setting up the Data Index Kafka consumer please visit: <a href="https://quarkus.io/guides/kafka-guide#configuring-the-kafka-connector" target="_blank">configuring-the-kafka-connector</a> and <a href="https://kafka.apache.org/documentation/#consumerconfigs" target="_blank">Kafka consumer configuration</a></p>
+</li>
+</ul>
+<h3 id="running">Running</h3>
+<p>As a Quarkus based application, running the service for development takes full benefit of the dev mode support with live code reloading.
+For that simply run:</p>
+<pre><code>mvn clean compile quarkus:dev
+</code></pre><p>Once the service is up and running, it will start consuming messages from the  Kafka topic named: <code>kogito-processinstances-events</code>.
+For more details on how to enable a Kogito runtime to produce events, please visit <a href="https://github.com/kiegroup/kogito-runtimes/wiki/Configuration#publishing-events" target="_blank">publishing-events</a>.</p>
+<p>When running on dev mode, the <a href="https://github.com/graphql/graphiql" target="_blank">GraphiQL</a> UI is available, on <code>http://localhost:8180/</code>, which allows exploring and querying the available data model. Alternatively, it is also possible to use a GraphQL client API to communicate with the exposed endpoint at <code>http://localhost:8180/graphql</code>.</p>
+<p>In there you can explore the current types available using the Docs section on the top right and execute queries on the model.
+Some examples:</p>
+<h4 id="querying-the-technical-cache">Querying the technical cache</h4>
+<pre><code class="lang-graphql">{
+  ProcessInstances {
+    id
+    processId
+    state
+    parentProcessInstanceId
+    rootProcessId
+    rootProcessInstanceId
+    variables
+    nodes {
+      id
+      name
+      type
+    }
+  }
+}
+</code></pre>
+<h5 id="filtering">Filtering</h5>
+<p>The provided GraphQL schema also allows for further filtering of the results. A filter attribute is optional and allows multiple combinations. A few examples:</p>
+<pre><code class="lang-graphql">{
+  ProcessInstances(filter: {state: ACTIVE, limit: 10, processId: &quot;travels_sub&quot;}) {
+    id
+    processId
+    state
+    variables
+  }
+}
+</code></pre>
+<pre><code class="lang-graphql">{
+  ProcessInstances(filter: {id: [&quot;abb9f626-8a54-444d-943a-25b969a2cd1c&quot;, &quot;446fcdb8-aa79-4044-baf9-6c471e0fbe1b&quot;]}) {
+    id
+    processId
+    state
+    variables
+  }
+}
+</code></pre>
+<h4 id="querying-the-domain-cache">Querying the domain cache</h4>
+<p>Assuming a Travels model is deployed</p>
+<pre><code class="lang-graphql">{
+  Travels {
+    visaApplication {
+      duration
+    }
+    flight {
+      flightNumber
+      gate
+    }
+    hotel {
+      name
+      address {
+        city
+        country
+      }
+    }
+    traveller {
+      firstName
+      lastName
+      nationality
+      email
+    }
+  }
+}
+</code></pre>
+<h5 id="filtering">Filtering</h5>
+<p>Filtering the domain-specific cache is, at this stage, open to a simple string, which is based in Infinispan query API. Please note, that we do plan to replace this for a GraphQL typed search, similar to what is provided by the technical cache. This open search allows for some interesting searches such as:</p>
+<ul>
+<li>List all Travels for travellers that first name starts with <code>ma</code>.<pre><code class="lang-graphql">{
+Travels(query: &quot;from org.acme.travels.travels.Travels t where t.traveller.firstName:&apos;ma*&apos;&quot;) {
+  flight {
+    flightNumber
+    arrival
+    departure
+  }
+  hotel {
+    name
+  }
+  traveller {
+    firstName
+  }
+  processInstances {
+    id
+    processId
+    rootProcessId
+    rootProcessInstanceId
+    parentProcessInstanceId
+  }
+}
+}
+</code></pre>
+</li>
+<li>List the flight details related to a specific process instance.<pre><code class="lang-graphql">{
+Travels(query: &quot;from org.acme.travels.travels.Travels t where t.processInstances.id:&apos;abb9f626-8a54-444d-943a-25b969a2cd1c&apos;&quot;) {
+  flight {
+    flightNumber
+    arrival
+    departure
+  }
+}
+}
+</code></pre>
+</li>
+</ul>
+<h4 id="loading-proto-files-from-the-file-system">Loading proto files from the file system</h4>
+<p>To bootstrap the service using a set of proto files from a folder, simply pass the following property <code>kogito.protobuf.folder</code> and any .proto file contained in the folder will automatically be loaded when the application starts.
+You can also set up the service to reload/load any changes to files during the service execution by setting <code>kogito.protobuf.watch=true</code>.</p>
+<pre><code>mvn clean compile quarkus:dev -Dkogito.protobuf.folder=/home/git/kogito-runtimes/data-index/data-index-service/src/test/resources -Dkogito.protobuf.watch=true
+</code></pre><h3 id="building">Building</h3>
+<p>To generate the final build artifact, sim run:</p>
+<pre><code>mvn clean install
+</code></pre><p>The Maven build will generate a uber jar at <code>target/data-index-service-${version}-runner.jar</code>, that can be executed via:</p>
+<pre><code>java -jar target/data-index-service-8.0.0-SNAPSHOT-runner.jar
+</code></pre><h3 id="infinispan-indexing">Infinispan Indexing</h3>
+<p>Infinispan embeds a Lucene engine in order to provide indexing of models in the cache. To be able to hint the engine about which attributes should be indexed,
+it needs to annotate the proto file attributes using Hibernate Search annotations  <code>@Indexed</code> and <code>@Field</code>.
+For more details, visit <a href="https://infinispan.org/docs/dev/user_guide/user_guide.html#indexing_of_protobuf_encoded_entries" target="_blank">indexing_of_protobuf_encoded_entries</a>.  </p>
+<p>Sample indexed model:</p>
+<pre><code>/* @Indexed */
+message ProcessInstanceMeta {
+    /* @Field(store = Store.YES, analyze = Analyze.YES, analyzer = @Analyzer(definition = &quot;keyword&quot;)) */
+    optional string id = 1;
+}
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Messaging.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Messaging">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Data Index Service","level":"1.2.4","depth":2,"previous":{"title":"Messaging","level":"1.2.3.3","depth":3,"path":"kogito-wiki/Messaging.asciidoc","ref":"kogito-wiki/Messaging.asciidoc","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"kogito-wiki/Data-Index-Service.md","mtime":"2019-08-28T13:01:13.866Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-28T13:15:57.942Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

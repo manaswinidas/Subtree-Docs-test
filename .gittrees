@@ -1,0 +1,4 @@
+[subtree "kogito-wiki"]
+	url = https://github.com/kiegroup/kogito-runtimes.wiki.git
+	path = kogito-wiki
+	branch = master
