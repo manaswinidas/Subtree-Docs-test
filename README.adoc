@@ -1,27 +1,30 @@
 # Subtree-Docs-test
 
-This is a test repository to check the syncing of GitHub wiki and GitBook content for documentation using git subtree.
+This is a test repository to check the syncing of GitHub wiki and GitBook content for documentation using git subtree. Make sure you have it installed before running this repository.
 
-## Steps to reproduce 
+## Run 
 
-Add the subtree remote using: `git remote add -f kogito-wiki https://github.com/kiegroup/kogito-runtimes.wiki.git`
-
-Add the subtree using(creates a commit automatically): `git subtree add --prefix=kogito-wiki https://github.com/kiegroup/kogito-runtimes.wiki.git master`
-
-Pull the latest updates from subtree: `git subtree pull-all`
-
-## Install gitbook dependencies
+### Install gitbook dependencies
 
 `npm install`
+
+### You can serve the kogito-wiki repository as a gitbook using:
+
+`gitbook serve`
 
 ## Build and run kogito-wiki gitbook in your local environment
 
 ### Create the directories and files for a book from its SUMMARY.md file using:
 `gitbook init`
-This creates a `_book` folder which contains the generated HTML of all Asciidoc files. An example is present in this repository
-
-### You can serve the kogito-wiki repository as a gitbook using:
-`gitbook serve`
+This creates a `_book` folder which contains the generated HTML of all Asciidoc files. An example is present in this repository(you needn't execute this step, this has already been done for you).
 
 ### Or simply build the static website using:
 `gitbook build`
+
+## Steps to reproduce 
+(you needn't follow these instructions, this has already been done for you)
+Add the subtree remote using: `git remote add -f kogito-wiki https://github.com/kiegroup/kogito-runtimes.wiki.git`
+
+Add the subtree using(creates a commit automatically): `git subtree add --prefix=kogito-wiki https://github.com/kiegroup/kogito-runtimes.wiki.git master`
+
+Pull the latest updates from subtree: `git subtree pull-all`
